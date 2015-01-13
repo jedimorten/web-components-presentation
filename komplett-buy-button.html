@@ -1,0 +1,83 @@
+<template id="buy-button">
+    <style>
+        button {
+            background-image: linear-gradient(rgb(255, 217, 125), rgb(255, 203, 79) 50%, rgb(255, 195, 54) 50%, rgb(255, 192, 43));
+            background-size: 100%;
+            border-color: rgb(255, 185, 18);
+            border-radius: 6px;
+            border-style: solid;
+            border-width: 1px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: bold;
+            height: 32px;
+            padding-left: 25px;
+            padding-right: 25px;
+            z-index:2;
+        }
+        button:hover :active{
+            background-image: linear-gradient(#ffeec4, #ffd164 50%, #ffc845 50%, #ffc640);
+        }
+    </style>
+    <button>
+        <strong></strong>
+    </button>
+</template>
+
+<script>
+    (function(window, document, undefined) {
+        // Refers to the "importer", which is index.html
+        var thatDoc = document;
+        // Refers to the "importee", which is src/hello-world.html
+        var thisDoc =  (thatDoc.currentScript || thatDoc._currentScript).ownerDocument;
+        // Gets content from <template>
+        var template = thisDoc.querySelector("#buy-button").content;
+        // Creates an object based in the HTML Element prototype
+        var KomplettBuyButton = Object.create(HTMLElement.prototype);
+        // Creates the "Text" attribute and sets a default value
+        KomplettBuyButton.Text = 'Kjøp';
+        // Fires when an instance of the element is created
+        KomplettBuyButton.createdCallback = function() {
+            var self = this;
+            // Creates the shadow root
+            var shadowRoot = self.createShadowRoot();
+            // Adds a template clone into shadow root
+            var clone = thatDoc.importNode(template, true);
+            shadowRoot.appendChild(clone);
+
+            self.textContainer = shadowRoot.querySelector("strong");
+            // Checks if the "Text" attribute has been overwritten
+            if (self.hasAttribute('Text')) {
+                var Text = self.getAttribute('Text');
+                self.setText(Text);
+            }
+            else {
+                self.setText(self.Text);
+            }
+            self.style.position = "fixed";
+            self.addEventListener('mouseout', function(e) {
+                console.log(e);
+                self.style.top = '';
+                self.style.left = '';
+                self.style.top = e.y+'px';
+                self.style.left = e.x+'px';
+            });
+        };
+        // Fires when an attribute was added, removed, or updated
+        KomplettBuyButton.attributeChangedCallback = function(attr, oldVal, newVal) {
+            if (attr === 'Text') {
+                this.setText(newVal);
+            }
+        };
+        // Sets new value to "Text" attribute
+        KomplettBuyButton.setText = function(val) {
+            this.Text = val;
+            // Sets "Text" value into <strong>
+            this.textContainer.textContent = this.Text;
+        };
+        // Registers <hello-world> in the main document
+        window.MyElement = thatDoc.registerElement('komplett-buy-button', {
+            prototype: KomplettBuyButton
+        });
+    })(window, document);
+</script>
