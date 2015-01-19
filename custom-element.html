@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Web Components</title>
+	</head>
+
+	<body>
+		<contact-tile>
+			<h2>Morten Kjelling</h2>
+			<img src="gifs/morten.png" alt="Mortens profilbilde"/>
+			<p>Systemutvikler</p>
+		</contact-tile>
+
+		<template id="contact-template">
+			<style>
+			:host {
+			  display: block;
+			  position: relative;
+			  background-color: #c284b3;
+			  padding: 20px;
+			  width: 300px;
+			  font-size: 1.2rem;
+			  font-weight: 300;
+			  cursor: pointer;
+			  -webkit-user-select: none;
+			}
+			.contact-header {
+			  margin-bottom: 10px;
+			}
+
+			.contact-header h2 {
+			  font-size: 14px;
+			  color:#000;
+			}
+
+			.contact-header ::content img {
+				position:absolute;
+				top: 20px;
+				right: 20px;
+				width: 70px;
+				height: 70px;
+				border-radius: 50%;
+			}
+
+			.detailed-info {
+				
+
+			}
+
+			.detailed-info.hidden {
+				display: none;
+			}
+			
+			</style>
+
+			<div class="contact-header">
+				<content select="h2"></content>
+				<content select="img"></content>
+			</div>
+			<div class="detailed-info hidden">
+				<content select="p"></content>
+			</div>
+		</template>
+
+		<script>
+			var proto = Object.create(HTMLElement.prototype);
+
+			proto.createdCallback = function() {
+				var self = this,
+					opened = false;
+			    	template = document.querySelector('#contact-template'),
+		            shadow = this.createShadowRoot(),
+		            clone = document.importNode(template.content, true);
+		            self.addEventListener("click", function(){
+		            	var d = shadow.querySelector(".detailed-info");
+		            	if(!opened){
+		            		d.className = "detailed-info";
+		            	} else {
+		            		d.className = d.className + " hidden";
+		            	}
+		            	opened = !opened;
+		            });
+		            shadow.appendChild(clone);
+			};
+
+			document.registerElement('contact-tile', {prototype: proto});
+		</script>
+	</body>
+</html>
