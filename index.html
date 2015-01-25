@@ -156,135 +156,10 @@
 				<section>
 					<h2>Four new standards</h2>	
 					<hr>
-					<h3 class="fragment">Custom elements</h3>	
-					<h3 class="fragment">Shadow DOM</h3>
 					<h3 class="fragment">Templates</h3>
+					<h3 class="fragment">Shadow DOM</h3>
+					<h3 class="fragment">Custom elements</h3>	
 					<h3 class="fragment">Html imports</h3>			
-				</section>
-
-				<section>
-					<h2>Custom Elements</h2>	
-					<hr>
-					<pre class="fragment">
-						<code class="xml">
-						    &ltunclickable-button&gt&lt/unclickable-button&gt
-						</code>					
-					</pre>
-					<pre class="fragment">
-						<code class="javascript">
-						    var proto = Object.create(HTMLElement.prototype);
-
-						    proto.createdCallback = function() {
-						        var self = this;
-						        self.innerHTML = "<style>button { background-color: red; } </style><button>Please don't touch me</button>";
-						        self.addEventListener('mouseover', function(e) {
-						            self.style.top = '';
-						            self.style.left = '';
-						            self.style.top = Math.floor((Math.random() * 500) + 1)+'px';
-						            self.style.left = Math.floor((Math.random() * 600) + 1)+'px';
-						        });
-						    };
-
-						    document.registerElement('unclickable-button', {prototype: proto});
-						</code>					
-					</pre>	
-					<div id="underdog" class="">
-						<unclickable-button></unclickable-button>
-					</div>							
-				</section>
-
-				<script>
-				var proto = Object.create(HTMLElement.prototype);
-
-				proto.createdCallback = function() {
-					var self = this;
-					self.innerHTML = "<style>button { background-color: red; } </style><button>Please don't touch me</button>";
-					self.style.position = "absolute";
-					self.addEventListener('mouseover', function(e) {
-				        self.style.top = '';
-				        self.style.left = '';
-				        self.style.top = Math.floor((Math.random() * 500) + 1)+'px';
-				        self.style.left = Math.floor((Math.random() * 600) + 1)+'px';
-				    });
-				};
-
-				document.registerElement('unclickable-button', {prototype: proto});
-				</script>
-
-				<section class="shadows">
-					<h2>Into the shadow</h2>	
-					<hr>
-
-					<div class="underdog">
-						<button>Please click me</button>
-					</div>
-
-					<pre class="fragment">
-						<code class="css">
-						  .shadows button {
-						  	background-color:green;
-						  }
-						</code>					
-					</pre>
-
-					<div class="overdog fragment">
-						<unclickable-button></unclickable-button>
-					</div>
-					
-				</section>
-
-				<section class="shadows">
-					<h2>Into the shadow</h2>	
-					<hr>
-
-					<pre>
-						<code class="javascript">
-						    var proto = Object.create(HTMLElement.prototype);
-
-						    proto.createdCallback = function() {
-						        var self = this,
-						            t = document.querySelector('#unclickable-template'),
-						            shadow = self.createShadowRoot();
-						            shadow.appendChild(document.importNode(t.content, true));
-						        self.addEventListener('mouseover', function(e) {
-						            self.style.top = '';
-						            self.style.left = '';
-						            self.style.top = Math.floor((Math.random() * 500) + 1)+'px';
-						            self.style.left = Math.floor((Math.random() * 600) + 1)+'px';
-						        });
-						    };
-
-						    document.registerElement('unclickable-button', {prototype: proto});
-						</code>					
-					</pre>
-			
-				</section>
-
-				<section class="shadows">
-					<h2>Into the shadow</h2>	
-					<hr>
-
-					<pre>
-						<code class="javascript">
-						            shadow = self.createShadowRoot();
-						            shadow.appendChild(document.importNode(template.content, true));
-						</code>					
-					</pre>
-
-				</section>
-
-				<section class="shadows">
-					<h2>With shadow DOM</h2>	
-					<hr>
-
-					<div class="underdog">
-						<button>Please click me</button>
-					</div>
-
-					<div class="overdog fragment">
-						<unclickable-buttox>Please don't click me</unclickable-buttox>
-					</div>
-					
 				</section>
 
 				<section>
@@ -305,57 +180,83 @@
 
 					<pre class="fragment">
 						<code class="javascript">
-						        var self = this,
-						            template = document.querySelector('#unclickable-template'),
-						            shadow = self.createShadowRoot();
-						            shadow.appendChild(document.importNode(template.content, true));
+						        var code = someCode;
 						       
 						</code>					
 					</pre>
 				</section>
 
-				<template id="unclickable-template">
-				    <style>
-				      button { background-color: red; }
-				    </style>
-				    <button id="shadow-button">
-				    	<content></content>
-				    </button>
-				</template>
+				<section class="shadows">
+					<h2>Into the shadow</h2>	
+					<hr>
 
-				<script>
-				var proton = Object.create(HTMLElement.prototype);
+					<pre>
+						<code class="javascript">
+						            shadow = self.createShadowRoot();
+						            shadow.appendChild(document.importNode(template.content, true));
+						</code>					
+					</pre>
 
-				proton.createdCallback = function() {
-					var self = this,
-						t = document.querySelector('#unclickable-template'),
-						shadow = self.createShadowRoot();
-						shadow.appendChild(document.importNode(t.content, true));
-					self.style.position = "absolute";
-					self.addEventListener('mouseover', function(e) {
-				        self.style.top = '';
-				        self.style.left = '';
-				        self.style.top = Math.floor((Math.random() * 500) + 1)+'px';
-				        self.style.left = Math.floor((Math.random() * 600) + 1)+'px';
-				    });
-				};
+				</section>
 
-				document.registerElement('unclickable-buttox', {prototype: proton});
-				</script>
+				<section>
+					<h2>Custom Elements</h2>	
+					<hr>
+					<ul>
+						<li class="fragment">name-convention</li>
+						<li class="fragment">extend existing html-elements</li>
+						<li class="fragment">life-cycle callbacks</li>
+						<li class="fragment"></li>	
+					</ul>							
+				</section>
+
+				<section>
+					<h2>Custom Elements</h2>	
+					<hr>
+					<pre>
+						<code class="xml">
+							&ltbutton is="unclickable"&gtDon't click me&lt/button&gt
+						</code>
+					</pre>
+					<pre>
+						<code class="xml">
+							&ltdiv is="wrapper"&gt
+							    &ltproduct-content&gt
+									
+							    &lt/product-content&gt
+							&lt/div&gt
+						</code>		
+					</pre>						
+				</section>
+
+				<section>
+					<h2>Custom Elements</h2>	
+					<hr>
+					<pre class="fragment">
+						<code class="xml">
+						    &ltcontact-tile&gt&lt/contact-tile&gt
+						</code>					
+					</pre>
+					<pre class="fragment">
+						<code class="javascript">
+
+						</code>					
+					</pre>										
+				</section>
 
 				<section>
 					<h2>Imports</h2>	
 					<hr>
 					<p class="fragment">
-					  KDC started:
-					  <time is="relative-time" datetime="2014-12-06T12:00:00.000Z">
+					  Foredraget startet:
+					  <time is="relative-time" datetime="2015-02-02T16:00:00.000Z">
 					    Oops! This browser doesn't support Web Components.
 					  </time>
 					</p>
 					<pre class="fragment">
 						<code class="xml">
-						  KDC started:
-						  &lttime is="relative-time" datetime="2014-12-06T12:00:00.000Z"&gt
+						  Foredraget startet:
+						  &lttime is="relative-time" datetime="2015-02-02T16:00:00.000Z"&gt
 						    Oops! This browser doesn't support Web Components.
 						  &lt/time&gt
 						</code>					
