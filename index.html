@@ -17,7 +17,6 @@
 		<link rel="stylesheet" href="css/reveal.min.css">
 		<link rel="stylesheet" href="css/theme/default.css" id="theme">
 
-
 		<!-- For syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
 
@@ -57,12 +56,25 @@
 
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
+				<section data-background="#4B2A91">
+					<div style="width:900px">
+						<img src="/css/img/ciber_logo.png" style="background:none; border:none; box-shadow:none;" />
+						<img src="/css/img/abakus_logo.png" style="background:none; border:none; box-shadow:none;" />
+					</div>
+				</section>
+
 				<section>
 					<h3>An introduction to</h3>
 					<h1>Web Components</h1>
 					
 					<p>
 						<small>Morten Kjelling / <a href="http://twitter.com/jedimorten">@jedimorten</a></small>
+					</p>
+					<p>
+						<small>Alexander Perry / <a href="http://twitter.com/perry_">@perry_</a></small>
+					</p>
+					<p>
+						<small>Bjørn-Vegard Thoresen / <a href="http://twitter.com/bvst89">@bvst89</a></small>
 					</p>
 				</section>
 
@@ -144,42 +156,11 @@
 				<section>
 					<h2>Four new standards</h2>	
 					<hr>
-					<h3 class="fragment">Custom elements</h3>	
-					<h3 class="fragment">Shadow DOM</h3>
 					<h3 class="fragment">Templates</h3>
+					<h3 class="fragment">Shadow DOM</h3>
+					<h3 class="fragment">Custom elements</h3>	
 					<h3 class="fragment">Html imports</h3>			
 				</section>
-
-
-				<section>
-					<h2>Custom Elements</h2>	
-					<hr>
-					<pre class="fragment">
-						<code class="xml">
-						    &contact-tile&gt&lt/contact-tile&gt
-						</code>					
-					</pre>
-					<pre class="fragment">
-						<code class="javascript">
-
-						</code>					
-					</pre>	
-										
-				</section>
-
-				<section class="shadows">
-					<h2>Into the shadow</h2>	
-					<hr>
-
-					<pre>
-						<code class="javascript">
-						            shadow = self.createShadowRoot();
-						            shadow.appendChild(document.importNode(template.content, true));
-						</code>					
-					</pre>
-
-				</section>
-
 
 				<section>
 					<h2>Templates</h2>	
@@ -205,19 +186,77 @@
 					</pre>
 				</section>
 
+				<section class="shadows">
+					<h2>Into the shadow</h2>	
+					<hr>
+
+					<pre>
+						<code class="javascript">
+						            shadow = self.createShadowRoot();
+						            shadow.appendChild(document.importNode(template.content, true));
+						</code>					
+					</pre>
+
+				</section>
+
+				<section>
+					<h2>Custom Elements</h2>	
+					<hr>
+					<ul>
+						<li class="fragment">name-convention</li>
+						<li class="fragment">extend existing html-elements</li>
+						<li class="fragment">life-cycle callbacks</li>
+						<li class="fragment"></li>	
+					</ul>							
+				</section>
+
+				<section>
+					<h2>Custom Elements</h2>	
+					<hr>
+					<pre>
+						<code class="xml">
+							&ltbutton is="unclickable"&gtDon't click me&lt/button&gt
+						</code>
+					</pre>
+					<pre>
+						<code class="xml">
+							&ltdiv is="wrapper"&gt
+							    &ltproduct-content&gt
+									
+							    &lt/product-content&gt
+							&lt/div&gt
+						</code>		
+					</pre>						
+				</section>
+
+				<section>
+					<h2>Custom Elements</h2>	
+					<hr>
+					<pre class="fragment">
+						<code class="xml">
+						    &ltcontact-tile&gt&lt/contact-tile&gt
+						</code>					
+					</pre>
+					<pre class="fragment">
+						<code class="javascript">
+
+						</code>					
+					</pre>										
+				</section>
+
 				<section>
 					<h2>Imports</h2>	
 					<hr>
 					<p class="fragment">
-					  KDC started:
-					  <time is="relative-time" datetime="2014-12-06T12:00:00.000Z">
+					  Foredraget startet:
+					  <time is="relative-time" datetime="2015-02-02T16:00:00.000Z">
 					    Oops! This browser doesn't support Web Components.
 					  </time>
 					</p>
 					<pre class="fragment">
 						<code class="xml">
-						  KDC started:
-						  &lttime is="relative-time" datetime="2014-12-06T12:00:00.000Z"&gt
+						  Foredraget startet:
+						  &lttime is="relative-time" datetime="2015-02-02T16:00:00.000Z"&gt
 						    Oops! This browser doesn't support Web Components.
 						  &lt/time&gt
 						</code>					
@@ -243,22 +282,104 @@
 				</section>		
 
 				<section>
-					<h2>Impacts for Komplett?</h2>	
-					<hr>
-					<p class="fragment">Wouldn't it be cool to make custom elements?</p>
-					
-				</section>			
+					<h1>Polymer</h1>
+					<img src="/css/img/p-logo.svg"  style="background:none; border:none; box-shadow:none;"/>
+				</section>
 
 				<section>
-					<h2>Web components</h2>	
+					<h2>Why Polymer?</h2>
+					
+				</section>
+
+				<section>
+					<h2>Architecture</h2>
+					<img src="https://www.polymer-project.org/images/architecture-diagram.svg"  style="background:none; border:none; box-shadow:none;">
+				</section>
+
+				<section>
+					<h2>Architecture</h2>
+					<p>Polyfills</p>
+				</section>
+
+				<section>
+					<h2>Architecture</h2>
+					<p>platform.js</p>
+				</section>
+
+				<section>
+					<h2>Elements</h2>
+					<p class="fragment">Core</p>
+					<p class="fragment">Paper</p>
+					<p class="fragment">Google</p>
+					<p class="fragment">++</p>
+				</section>
+
+				<section>
+					<h3>Core elements</h3>
+
+				</section>
+
+				<section>
+					<h3>Paper elements</h3>
+
+				</section>
+
+				<section>
+					<h3>Google elements</h3>
+					<p> <a href="http://googlewebcomponents.github.io/">http://googlewebcomponents.github.io/</a> </p>
+				</section>
+
+				<section>
+					<h3>++</h3>
+					<p> <a href="http://customelements.io">http://customelements.io</a> </p>
+				</section>
+
+				<section>
+					<h2>Syntax</h2>
+					
+				</section>
+
+				<section>
+					<h3>Expressions</h3>
+					
+				</section>
+
+				<section>
+					<h3>Data-binding</h3>
+
+				</section>
+
+				<section>
+					<h2>Insertion points</h2>
+
+				</section>
+
+				<section>
+					<h2>Lifecycle callbacks</h2>
+
+				</section>
+
+				<section>
+					<h2>Polymer Designer</h2>
+					<p> <a href="https://polymer-designer.appspot.com/ ">polymer-designer.appspot.com</a> </p>
+				</section>
+
+				<section>
+					<h2>Questions?</h2>	
 					<hr>	
 					<p> <a href="http://polymer-project.com">http://polymer-project.com </a> </p>
 
 					<p> <a href="http://x-tags.org/">http://x-tags.org/</a> </p>
 
-					<p> <a href="http://customelements.io">http://customelements.io</a> </p>
 
 					<p> <a href="http://webcomponents.org/">http://webcomponents.org/</a> </p>
+				</section>
+
+				<section>
+					<h2>Jobb?</h2>	
+					<hr>	
+					<p >Nina Orucevic / nina.orucevic@ciber.com</p>
+					
 				</section>
 			</div>
 
