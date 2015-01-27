@@ -165,20 +165,20 @@
 				</section>
 
 				<section>
-					<h2>What would be nice?</h2>	
+					<h2>Så hva hadde vært kjekt?</h2>	
 					<hr>
-					<h3 class="fragment">Web<strong>Application</strong> syntax</h3>					
-					<h3 class="fragment">Components</h3>
-					<h3 class="fragment">Encapsulation</h3>	
+					<h3 class="fragment">Web<strong>Applikasjon</strong> syntax</h3>					
+					<h3 class="fragment">Komponenter</h3>
+					<h3 class="fragment">Scoping</h3>	
 				</section>
 
 				<section>
-					<h2>Four new standards</h2>	
+					<h2>Fire nye standarder</h2>	
 					<hr>
 					<h3 class="fragment">Templates</h3>
 					<h3 class="fragment">Shadow DOM</h3>
-					<h3 class="fragment">Custom elements</h3>	
-					<h3 class="fragment">Html imports</h3>			
+					<h3 class="fragment">Egendefinerte elementer</h3>	
+					<h3 class="fragment">Html import</h3>			
 				</section>
 
 				<section>
@@ -186,22 +186,94 @@
 					<hr>
 					<pre class="fragment">
 						<code class="xml">
-						  &lttemplate id="unclickable-template"&gt
-						    <style>
-						      button { background-color: red; }
-						    </style>
-						    <button>
-						        <content></content>
-						    </button>
+						  &lttemplate id="contact-template"&gt
+						    <div class="contact-header">
+						    	<content select="h2"></content>
+						    	<content select="img"></content>
+						    </div>
+						    <div class="detailed-info">
+						    	<content select="ul"></content>
+						    </div>
 						  &lt/template&gt
 						</code>					
 					</pre>
 
 					<pre class="fragment">
 						<code class="javascript">
-						        var code = someCode;
-						       
+						     var template = document.querySelector('#contact-template');
+						     var clone = document.importNode(template.content, true);
+
+						     document.body.appendChild(clone);
 						</code>					
+					</pre>
+				</section>
+
+				<section>
+					<h3 onclick="addTemplate()">Templates</h3>	
+					<hr>
+					
+					<template id="contact-template">
+						<style>
+						#template-wrapper .contact-wrapper {
+							  position: relative;
+							  background-color: #4B2A91;
+							  color: #C0D72F;
+							  padding: 20px;
+							  height: 300px;
+							  width:500px;
+							  font-size: 1.2rem;
+							  font-weight: 300;
+							  margin: 0 auto;
+							  -webkit-user-select: none;
+						}
+						#template-wrapper .contact-header {
+						  margin-bottom: 10px;
+						}
+
+						#template-wrapper .contact-header h2 {
+						  font-size: 24px;
+						  color:#000;
+						}
+
+						#template-wrapper .contact-header img {
+							position:absolute;
+							top: 20px;
+							right: 20px;
+							width: 70px;
+							height: 70px;
+							border-radius: 50%;
+						}
+
+						#template-wrapper .detailed-info {
+							margin-top:-70px;
+						}
+						
+						</style>
+						<div class="contact-wrapper">
+							<div class="contact-header">
+								<content select="h2">Morten Kjelling</content>
+								<content select="img"><img src="css/img/morten.png"/></content>
+							</div>
+							<div class="detailed-info">
+								<ul>
+									<li id="position">Frontend / .NET</li>
+									<li id="project">Komplett.no</li>
+									<li id="education">UiO</li>
+								</ul>
+							</div>
+						</div>
+					</template>
+					<script>
+						var addTemplate = function (){
+							var template = document.querySelector('#contact-template');
+						     var clone = document.importNode(template.content, true);
+
+						     document.querySelector('#template-wrapper').appendChild(clone);
+						 }
+					</script>
+
+					<pre id="template-wrapper" style="height:400px;">
+										
 					</pre>
 				</section>
 
@@ -211,21 +283,20 @@
 
 					<pre>
 						<code class="javascript">
-						            shadow = self.createShadowRoot();
-						            shadow.appendChild(document.importNode(template.content, true));
+						    shadow = self.createShadowRoot();
+						    shadow.appendChild(document.importNode(template.content, true));
 						</code>					
 					</pre>
 
 				</section>
 
 				<section>
-					<h2>Custom Elements</h2>	
+					<h2>Custom Elementer</h2>	
 					<hr>
 					<ul>
-						<li class="fragment">name-convention</li>
-						<li class="fragment">extend existing html-elements</li>
+						<li class="fragment">navne-konvensjon</li>
+						<li class="fragment">kan utvide eksiterende html-elementer</li>
 						<li class="fragment">life-cycle callbacks</li>
-						<li class="fragment"></li>	
 					</ul>							
 				</section>
 
@@ -234,48 +305,101 @@
 					<hr>
 					<pre>
 						<code class="xml">
-							&ltbutton is="unclickable"&gtDon't click me&lt/button&gt
+							&ltbutton is="unclickable-button"&gtIkke prøv å klikk på meg&lt/button&gt
 						</code>
 					</pre>
 					<pre>
-						<code class="xml">
-							&ltdiv is="wrapper"&gt
-							    &ltproduct-content&gt
-									
-							    &lt/product-content&gt
-							&lt/div&gt
-						</code>		
+						<button	is="unclickable-button">Ikke prøv å klikk på meg</button>
 					</pre>						
 				</section>
 
-				<section>
-					<h2>Custom Elements</h2>	
-					<hr>
-					<pre class="fragment">
-						<code class="xml">
-						    &ltcontact-tile&gt&lt/contact-tile&gt
-						</code>					
-					</pre>
-					<pre class="fragment">
-						<code class="javascript">
+				<template id="unclickable-template">
+				    <style>
+				    :host {
+				    	display: inline-block;
+				    	padding: 0;
+				    	margin-bottom: 0;
+				    	font-size: 14px;
+				    	font-weight: 400;
+				    	line-height: 1.42857143;
+				    	text-align: center;
+				    	white-space: nowrap;
+				    	vertical-align: middle;
+				    	-ms-touch-action: manipulation;
+				    	touch-action: manipulation;
+				    	cursor: pointer;
+				    	-webkit-user-select: none;
+				    	-moz-user-select: none;
+				    	-ms-user-select: none;
+				    	user-select: none;
+				    	background-image: none;
+				    	border: 1px solid transparent;
+				    	border-radius: 4px;
+				    }
+				      #shadow-button { 
+				      	background-color: red; 
+				      	display: inline-block;
+				      	padding: 6px 12px;
+				      	margin-bottom: 0;
+				      	font-size: 14px;
+				      	font-weight: 400;
+				      	line-height: 1.42857143;
+				      	text-align: center;
+				      	white-space: nowrap;
+				      	vertical-align: middle;
+				      	-ms-touch-action: manipulation;
+				      	touch-action: manipulation;
+				      	cursor: pointer;
+				      	-webkit-user-select: none;
+				      	-moz-user-select: none;
+				      	-ms-user-select: none;
+				      	user-select: none;
+				      	background-image: none;
+				      	border: 1px solid transparent;
+				      	border-radius: 4px;
+				      }
+				    </style>
+				    <button id="shadow-button">
+				    	<content></content>
+				    </button>
+				</template>
 
-						</code>					
-					</pre>										
-				</section>
+				<script>
+					var proton = Object.create(HTMLButtonElement.prototype);
+
+					proton.createdCallback = function() {
+						var self = this,
+							t = document.querySelector('#unclickable-template'),
+							shadow = self.createShadowRoot();
+							shadow.appendChild(document.importNode(t.content, true));
+						self.style.position = "absolute";
+						self.addEventListener('mouseover', function(e) {
+					        self.style.top = '';
+					        self.style.left = '';
+					        self.style.top = Math.floor((Math.random() * 400) + 1)+'px';
+					        self.style.left = Math.floor((Math.random() * 600) + 1)+'px';
+					    });
+					};
+
+					document.registerElement('unclickable-button', 
+											 {prototype: proton,
+											  extends: 'button' }
+											 );
+				</script>
 
 				<section>
-					<h2>Imports</h2>	
+					<h2>Html imports</h2>	
 					<hr>
 					<p class="fragment">
-					  Foredraget startet:
-					  <time is="relative-time" datetime="2015-02-02T16:00:00.000Z">
+					  Latest commit:
+					  <time is="relative-time" datetime="2015-01-27T16:00:00.000Z">
 					    Oops! This browser doesn't support Web Components.
 					  </time>
 					</p>
 					<pre class="fragment">
 						<code class="xml">
-						  Foredraget startet:
-						  &lttime is="relative-time" datetime="2015-02-02T16:00:00.000Z"&gt
+						  Latest commit:
+						  &lttime is="relative-time" datetime="2015-01-27T16:00:00.000Z"&gt
 						    Oops! This browser doesn't support Web Components.
 						  &lt/time&gt
 						</code>					
@@ -285,7 +409,7 @@
 				<section>
 					<h2>Imports</h2>	
 					<hr>	
-					<x-gif class="fragment" src="css/img/sloow.gif" speed="5"></x-gif>
+					<x-gif class="fragment" src="gifs/dog.gif" speed="5"></x-gif>
 
 					<pre class="fragment">
 						<code class="xml">
@@ -295,7 +419,7 @@
 
 					<pre class="fragment">
 						<code class="xml">
-							<x-gif src="css/img/sloow.gif" speed="5"></x-gif>
+							<x-gif src="gifs/dog.gif" speed="5"></x-gif>
 						</code>					
 					</pre>
 				</section>		
