@@ -688,12 +688,6 @@
 
 				<section>
 					<h2>Arkitektur</h2>
-					<h3>Native</h3>
-
-				</section>
-
-				<section>
-					<h2>Arkitektur</h2>
 					<img src="css/img/polymer-architecture-foundation.svg"  style="height: 500px; background:none; border:none; box-shadow:none;">
 				</section>
 
@@ -725,6 +719,10 @@
 					<h2>Arkitektur</h2>
 					<img src="css/img/polymer-architecture-app.svg"  style="height: 500px; background:none; border:none; box-shadow:none;">
 					<p><a href="https://www.polymer-project.org/" target="_blank">www.polymer-project.org</a></p>
+				</section>
+
+				<section>
+					<h2>Syntaks</h2>
 				</section>
 
 				<section>
@@ -832,110 +830,8 @@
 				</section>
 
 				<section>
-					<h2>Insertion points</h2>
-
-				</section>
-
-				<section>
-					<h2>Lifecycle callbacks</h2>
-					<table style="font-size:14px;">
-					  <thead>
-					    <tr>
-					      <th>Spec</th>
-					      <th>Polymer</th>
-					    </tr>
-					  </thead>
-					  <tbody>
-					    <tr>
-					      <td>createdCallback</td>
-					      <td>created</td>
-					    </tr>
-					    <tr>
-					      <td>-</td>
-					      <td>ready</td>
-					      <td>The &lt;polymer-element&gt; has been fully prepared (e.g. shadow DOM created, property observers setup, event listeners attached, etc).</td>
-					    </tr>
-					    <tr>
-					      <td>attachedCallback</td>
-					      <td>attached</td>
-					    </tr>
-					    <tr>
-					      <td>-</td>
-					      <td>domReady</td>
-					      <td>Called when the element’s initial set of children are guaranteed to exist. This is an appropriate time to poke at the element’s parent or light DOM children. Another use is when you have sibling custom elements (e.g. they’re .innerHTML‘d together, at the same time). Before element A can use B’s API/properties, element B needs to be upgraded. The domReady callback ensures both elements exist.</td>
-					    </tr>
-					    <tr>
-					      <td>detachedCallback</td>
-					      <td>detached</td>
-					    </tr>
-					    <tr>
-					      <td>attributeChangedCallback</td>
-					      <td>attributeChanged</td>
-					    </tr>
-					  </tbody>
-					</table>
-				</section>
-
-				<section>
-					<h2>Elementer</h2>
-					<p class="fragment">Core</p>
-					<p class="fragment">Paper</p>
-					<p class="fragment">Google</p>
-					<p class="fragment">++</p>
-				</section>
-
-				<section>
-					<h3><a href="https://www.polymer-project.org/components/core-elements/demo.html#" target="_blank">Core</a></h3>
-
-				</section>
-
-				<section>
-					<h3><a href="https://www.polymer-project.org/components/paper-elements/demo.html#paper-checkbox"  target="_blank">Paper</a></h3>
-
-				</section>
-
-				<section>
-					<h3>Google-elementer</h3>
-					<google-chart type="geo" style="height: 700px; width: 1000px" 
-								data="[['Country', ''],['Germany', 1],['United States', 1],['Australia', 1],['Denmark', 1],['Finland', 1],['France', 1],['India', 1],['Netherlands', 1],['Poland', 1],['Spain', 1],['Sweden', 1],['United Kingdom', 1],['Vietnam', 1],['Norway', 1]]"
-								options="{'backgroundColor': 'transparent', 'tooltip.trigger': 'none', 'legend': 'none', 'minValue':1, 'values': [0,1], 'colors':['#4B2A91', '#4B2A91']}">
-				  </google-chart>
-					<p> <a href="http://googlewebcomponents.github.io/google-chart/" target="_blank">googlewebcomponents.github.io/google-chart/</a> </p>
-				</section>
-
-				<section>
-					<h3>Google-elementer</h3>
-					<google-map style="height: 500px; display: block" latitude="63.41745928602863" longitude="10.402603117907688">
-						<google-map-marker latitude="63.41745928602863" longitude="10.402603117907688" draggable="true" title="NTNU"></google-map-marker>
-					</google-map>
-					<p> <a href="http://googlewebcomponents.github.io/google-map/" target="_blank">googlewebcomponents.github.io/google-map/</a> </p>
-				</section>
-
-				<section>
-					<h3>Google-elementer</h3>
-					<p> <a href="http://googlewebcomponents.github.io/" target="_blank">googlewebcomponents.github.io</a> </p>
-				</section>
-
-				<section>
-					<img src="css/img/butwait.jpg">
-					<p> <a href="http://customelements.io" target="_blank">customelements.io</a> </p>
-				</section>
-
-				<section>
 					<h2>Syntaks</h2>
-					
-				</section>
-
-				<section>
-					<h2>Syntaks</h2>
-					<h3>Expressions</h3>
-					
-				</section>
-
-				<section>
-					<h2>Syntaks</h2>
-					<h3>Data-binding</h3>
-
+					<h3>Data binding</h3>
 				</section>
 
 				<section>
@@ -1093,15 +989,88 @@
 				</section>
 
 				<section>
-					<h2>Syntaks</h2>
-					<h3>Insertion points</h3>
+					<h2>Lifecycle callbacks</h2>
+					<table style="font-size:14px;">
+					  <thead>
+					    <tr>
+					      <th>Spec</th>
+					      <th>Polymer</th>
+					    </tr>
+					  </thead>
+					  <tbody>
+					    <tr>
+					      <td>createdCallback</td>
+					      <td>created</td>
+					    </tr>
+					    <tr>
+					      <td>-</td>
+					      <td>ready</td>
+					      <td>The &lt;polymer-element&gt; has been fully prepared (e.g. shadow DOM created, property observers setup, event listeners attached, etc).</td>
+					    </tr>
+					    <tr>
+					      <td>attachedCallback</td>
+					      <td>attached</td>
+					    </tr>
+					    <tr>
+					      <td>-</td>
+					      <td>domReady</td>
+					      <td>Called when the element’s initial set of children are guaranteed to exist. This is an appropriate time to poke at the element’s parent or light DOM children. Another use is when you have sibling custom elements (e.g. they’re .innerHTML‘d together, at the same time). Before element A can use B’s API/properties, element B needs to be upgraded. The domReady callback ensures both elements exist.</td>
+					    </tr>
+					    <tr>
+					      <td>detachedCallback</td>
+					      <td>detached</td>
+					    </tr>
+					    <tr>
+					      <td>attributeChangedCallback</td>
+					      <td>attributeChanged</td>
+					    </tr>
+					  </tbody>
+					</table>
+				</section>
+
+				<section>
+					<h2>Elementer</h2>
+					<p class="fragment">Core</p>
+					<p class="fragment">Paper</p>
+					<p class="fragment">Google</p>
+					<p class="fragment">++</p>
+				</section>
+
+				<section>
+					<h3><a href="https://www.polymer-project.org/components/core-elements/demo.html#" target="_blank">Core</a></h3>
 
 				</section>
 
 				<section>
-					<h2>Syntaks</h2>
-					<h3>Lifecycle callbacks</h3>
+					<h3><a href="https://www.polymer-project.org/components/paper-elements/demo.html#paper-checkbox"  target="_blank">Paper</a></h3>
 
+				</section>
+
+				<section>
+					<h3>Google-elementer</h3>
+					<google-chart type="geo" style="height: 700px; width: 1000px" 
+								data="[['Country', ''],['Germany', 1],['United States', 1],['Australia', 1],['Denmark', 1],['Finland', 1],['France', 1],['India', 1],['Netherlands', 1],['Poland', 1],['Spain', 1],['Sweden', 1],['United Kingdom', 1],['Vietnam', 1],['Norway', 1]]"
+								options="{'backgroundColor': 'transparent', 'tooltip.trigger': 'none', 'legend': 'none', 'minValue':1, 'values': [0,1], 'colors':['#4B2A91', '#4B2A91']}">
+				  </google-chart>
+					<p> <a href="http://googlewebcomponents.github.io/google-chart/" target="_blank">googlewebcomponents.github.io/google-chart/</a> </p>
+				</section>
+
+				<section>
+					<h3>Google-elementer</h3>
+					<google-map style="height: 500px; display: block" latitude="63.41745928602863" longitude="10.402603117907688">
+						<google-map-marker latitude="63.41745928602863" longitude="10.402603117907688" draggable="true" title="NTNU"></google-map-marker>
+					</google-map>
+					<p> <a href="http://googlewebcomponents.github.io/google-map/" target="_blank">googlewebcomponents.github.io/google-map/</a> </p>
+				</section>
+
+				<section>
+					<h3>Google-elementer</h3>
+					<p> <a href="http://googlewebcomponents.github.io/" target="_blank">googlewebcomponents.github.io</a> </p>
+				</section>
+
+				<section>
+					<img src="css/img/butwait.jpg">
+					<p> <a href="http://customelements.io" target="_blank">customelements.io</a> </p>
 				</section>
 
 				<section>
