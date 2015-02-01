@@ -92,7 +92,9 @@
 				</section>
 
 				<section>
-					<a href="http://localhost:9001/lf/1.0" target="_blank"><h3>Om oss</h3></a>
+					<a href="http://localhost:9001/lf/1.0" target="_blank">
+						<h1>Om oss</h1>
+					</a>
 				</section>
 
 				<section>
@@ -387,6 +389,57 @@
 					<p>Adskilt fra resten av DOM</p>
 					<p>Styling av host/mål-elementet; :host</p>
 					<p>Tilgang til intern styling; &lt&lt&lt</p>
+				</section>
+
+				<section>
+					<h2>Into the shadow</h2>	
+					<h3>Styling - :host</h3>
+					<hr>
+					<pre class="fragment">
+						<code class="css">
+:host {
+  opacity: 0.4;
+}
+:host(:hover) {
+  opacity: 1;
+}
+:host(:active) {
+  opacity: 1;
+  background-color: blue;
+}
+						</code>					
+					</pre>
+				</section>
+
+				<section>
+					<h2>Into the shadow</h2>	
+					<h3>Styling - ::shadow</h3>
+					<hr>
+					<pre class="fragment">
+						<code class="css">
+:host {
+  opacity: 0.4;
+}
+:host(:hover) {
+  opacity: 1;
+}
+:host(:active) {
+  opacity: 1;
+  background-color: blue;
+}
+						</code>					
+					</pre>
+				</section>
+
+				<section>
+					<h2>Into the shadow</h2>	
+					<h3>Styling - /deep/ &lt&lt&lt</h3>
+					<hr>
+					<pre class="fragment">
+						<code class="css">
+
+						</code>					
+					</pre>
 				</section>
 
 				<section class="shadows">
@@ -779,6 +832,113 @@
 				</section>
 
 				<section>
+					<h2>Insertion points</h2>
+
+				</section>
+
+				<section>
+					<h2>Lifecycle callbacks</h2>
+					<table style="font-size:14px;">
+					  <thead>
+					    <tr>
+					      <th>Spec</th>
+					      <th>Polymer</th>
+					    </tr>
+					  </thead>
+					  <tbody>
+					    <tr>
+					      <td>createdCallback</td>
+					      <td>created</td>
+					    </tr>
+					    <tr>
+					      <td>-</td>
+					      <td>ready</td>
+					      <td>The &lt;polymer-element&gt; has been fully prepared (e.g. shadow DOM created, property observers setup, event listeners attached, etc).</td>
+					    </tr>
+					    <tr>
+					      <td>attachedCallback</td>
+					      <td>attached</td>
+					    </tr>
+					    <tr>
+					      <td>-</td>
+					      <td>domReady</td>
+					      <td>Called when the element’s initial set of children are guaranteed to exist. This is an appropriate time to poke at the element’s parent or light DOM children. Another use is when you have sibling custom elements (e.g. they’re .innerHTML‘d together, at the same time). Before element A can use B’s API/properties, element B needs to be upgraded. The domReady callback ensures both elements exist.</td>
+					    </tr>
+					    <tr>
+					      <td>detachedCallback</td>
+					      <td>detached</td>
+					    </tr>
+					    <tr>
+					      <td>attributeChangedCallback</td>
+					      <td>attributeChanged</td>
+					    </tr>
+					  </tbody>
+					</table>
+				</section>
+
+				<section>
+					<h2>Elementer</h2>
+					<p class="fragment">Core</p>
+					<p class="fragment">Paper</p>
+					<p class="fragment">Google</p>
+					<p class="fragment">++</p>
+				</section>
+
+				<section>
+					<h3><a href="https://www.polymer-project.org/components/core-elements/demo.html#" target="_blank">Core</a></h3>
+
+				</section>
+
+				<section>
+					<h3><a href="https://www.polymer-project.org/components/paper-elements/demo.html#paper-checkbox"  target="_blank">Paper</a></h3>
+
+				</section>
+
+				<section>
+					<h3>Google-elementer</h3>
+					<google-chart type="geo" style="height: 700px; width: 1000px" 
+								data="[['Country', ''],['Germany', 1],['United States', 1],['Australia', 1],['Denmark', 1],['Finland', 1],['France', 1],['India', 1],['Netherlands', 1],['Poland', 1],['Spain', 1],['Sweden', 1],['United Kingdom', 1],['Vietnam', 1],['Norway', 1]]"
+								options="{'backgroundColor': 'transparent', 'tooltip.trigger': 'none', 'legend': 'none', 'minValue':1, 'values': [0,1], 'colors':['#4B2A91', '#4B2A91']}">
+				  </google-chart>
+					<p> <a href="http://googlewebcomponents.github.io/google-chart/" target="_blank">googlewebcomponents.github.io/google-chart/</a> </p>
+				</section>
+
+				<section>
+					<h3>Google-elementer</h3>
+					<google-map style="height: 500px; display: block" latitude="63.41745928602863" longitude="10.402603117907688">
+						<google-map-marker latitude="63.41745928602863" longitude="10.402603117907688" draggable="true" title="NTNU"></google-map-marker>
+					</google-map>
+					<p> <a href="http://googlewebcomponents.github.io/google-map/" target="_blank">googlewebcomponents.github.io/google-map/</a> </p>
+				</section>
+
+				<section>
+					<h3>Google-elementer</h3>
+					<p> <a href="http://googlewebcomponents.github.io/" target="_blank">googlewebcomponents.github.io</a> </p>
+				</section>
+
+				<section>
+					<img src="css/img/butwait.jpg">
+					<p> <a href="http://customelements.io" target="_blank">customelements.io</a> </p>
+				</section>
+
+				<section>
+					<h2>Syntaks</h2>
+					
+				</section>
+
+				<section>
+					<h2>Syntaks</h2>
+					<h3>Expressions</h3>
+					
+				</section>
+
+				<section>
+					<h2>Syntaks</h2>
+					<h3>Data-binding</h3>
+
+				</section>
+
+				<section>
 					<h3>Data binding - to-veis</h3>
 					<pre>
 						<code>
@@ -905,113 +1065,30 @@
 
 				<section>
 					<h3>Data binding - published properties</h3>
-					
-				</section>
+					<pre>
+						<code>
+<polymer-element name="contact-tile" attributes="name">
+  <template>
+    Navn: {{name}}
+  </template>
+  <script>
+    Polymer('name-field', {
+      ready: function() {
+        this.name = 'Ukjent'
+      }
+    });
+    </script>
+</polymer-element>
+<polymer-element name="contact-tile">
+  <template>
+    <p><name-field name="{{nameValue}}"></name-field></p>
+    <p>Hva heter du? <input value="{{nameValue}}" placeholder="Skriv inn navnet ditt..."></p>
+  </template>
+</polymer-element>
 
-				<section>
-					<h2>Insertion points</h2>
-
-				</section>
-
-				<section>
-					<h2>Lifecycle callbacks</h2>
-					<table style="font-size:14px;">
-					  <thead>
-					    <tr>
-					      <th>Spec</th>
-					      <th>Polymer</th>
-					    </tr>
-					  </thead>
-					  <tbody>
-					    <tr>
-					      <td>createdCallback</td>
-					      <td>created</td>
-					    </tr>
-					    <tr>
-					      <td>-</td>
-					      <td>ready</td>
-					      <td>The &lt;polymer-element&gt; has been fully prepared (e.g. shadow DOM created, property observers setup, event listeners attached, etc).</td>
-					    </tr>
-					    <tr>
-					      <td>attachedCallback</td>
-					      <td>attached</td>
-					    </tr>
-					    <tr>
-					      <td>-</td>
-					      <td>domReady</td>
-					      <td>Called when the element’s initial set of children are guaranteed to exist. This is an appropriate time to poke at the element’s parent or light DOM children. Another use is when you have sibling custom elements (e.g. they’re .innerHTML‘d together, at the same time). Before element A can use B’s API/properties, element B needs to be upgraded. The domReady callback ensures both elements exist.</td>
-					    </tr>
-					    <tr>
-					      <td>detachedCallback</td>
-					      <td>detached</td>
-					    </tr>
-					    <tr>
-					      <td>attributeChangedCallback</td>
-					      <td>attributeChanged</td>
-					    </tr>
-					  </tbody>
-					</table>
-				</section>
-
-				<section>
-					<h2>Elementer</h2>
-					<p class="fragment">Core</p>
-					<p class="fragment">Paper</p>
-					<p class="fragment">Google</p>
-					<p class="fragment">++</p>
-				</section>
-
-				<section>
-					<h3><a href="https://www.polymer-project.org/components/core-elements/demo.html#" target="_blank">Core</a></h3>
-
-				</section>
-
-				<section>
-					<h3><a href="https://www.polymer-project.org/components/paper-elements/demo.html#paper-checkbox"  target="_blank">Paper</a></h3>
-
-				</section>
-
-				<section>
-					<h3>Google-elementer</h3>
-					<google-chart type="geo" style="height: 700px; width: 1000px" 
-								data="[['Country', ''],['Germany', 1],['United States', 1],['Australia', 1],['Denmark', 1],['Finland', 1],['France', 1],['India', 1],['Netherlands', 1],['Poland', 1],['Spain', 1],['Sweden', 1],['United Kingdom', 1],['Vietnam', 1],['Norway', 1]]"
-								options="{'backgroundColor': 'transparent', 'tooltip.trigger': 'none', 'legend': 'none', 'minValue':1, 'values': [0,1], 'colors':['#4B2A91', '#4B2A91']}">
-				  </google-chart>
-					<p> <a href="http://googlewebcomponents.github.io/google-chart/" target="_blank">googlewebcomponents.github.io/google-chart/</a> </p>
-				</section>
-
-				<section>
-					<h3>Google-elementer</h3>
-					<google-map style="height: 500px; display: block" latitude="63.41745928602863" longitude="10.402603117907688">
-						<google-map-marker latitude="63.41745928602863" longitude="10.402603117907688" draggable="true" title="NTNU"></google-map-marker>
-					</google-map>
-					<p> <a href="http://googlewebcomponents.github.io/google-map/" target="_blank">googlewebcomponents.github.io/google-map/</a> </p>
-				</section>
-
-				<section>
-					<h3>Google-elementer</h3>
-					<p> <a href="http://googlewebcomponents.github.io/" target="_blank">googlewebcomponents.github.io</a> </p>
-				</section>
-
-				<section>
-					<img src="css/img/butwait.jpg">
-					<p> <a href="http://customelements.io" target="_blank">customelements.io</a> </p>
-				</section>
-
-				<section>
-					<h2>Syntaks</h2>
-					
-				</section>
-
-				<section>
-					<h2>Syntaks</h2>
-					<h3>Expressions</h3>
-					
-				</section>
-
-				<section>
-					<h2>Syntaks</h2>
-					<h3>Data-binding</h3>
+<contact-tile></contact-tile>
+						</code>
+					</pre>
 
 				</section>
 
