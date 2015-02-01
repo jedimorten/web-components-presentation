@@ -16,7 +16,6 @@
 
 		<link rel="stylesheet" href="css/reveal.min.css">
 		<link rel="stylesheet" href="css/theme/default.css" id="theme">
-		<link rel="import" href="bower_components/google-chart/google-chart.html">
 
 		<!-- For syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -31,8 +30,13 @@
 		    document.write('<script src="https:\/\/cdnjs.cloudflare.com/ajax/libs/polymer/0.3.4/platform.js"><\/script>')
 		  }
 		</script>
+
+		<script src="bower_components/webcomponentsjs/webcomponents.min.js"></script>
 		<script src="bower_components/time-elements/time-elements.js"></script>
 		<link rel="import" href="dist/x-gif.html">
+		<link rel="import" href="bower_components/google-chart/google-chart.html">
+		<link rel="import" href="bower_components/google-map/google-map.html">
+		<link rel="import" href="bower_components/google-map/google-map-directions.html">
 		
 
 		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
@@ -102,7 +106,12 @@
 				</section>
 
 				<section>
-					<h3>HTML før html5</h3>					
+					<h1>HTML før HTML5</h1>
+					<img src="/css/img/html4.png"  style="background:none; border:none; box-shadow:none;"/>
+				</section>	
+
+				<section>
+					<h3>HTML før HTML5</h3>					
 					<pre class="fragment">
 						<code class="xml">
 							<div class="wrapper">
@@ -128,6 +137,33 @@
 				</section>
 
 				<section>
+					<h1>HTML5!</h1>
+					<img src="/css/img/HTML5.svg"  style="width: 500px; background:none; border:none; box-shadow:none;"/>
+				</section>	
+
+				<section>
+					<h2>HTML5</h2>
+					<pre style="width: 500px"><code data-trim contenteditable>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;&lt;/head&gt;
+  &lt;body&gt;
+    &lt;header&gt;&lt;/header&gt;
+    &lt;nav&gt;&lt;/nav&gt;
+    &lt;section&gt;&lt;/section&gt;
+    &lt;article&gt;&lt;/article&gt;
+    &lt;aside&gt;&lt;/aside&gt;
+    &lt;footer&gt;&lt;/footer&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+					</code></pre>
+					<img src="css/img/divs.png"  style="background:none; border:none; box-shadow:none;">
+
+					<aside class="notes">
+					</aside>
+				</section>
+
+				<section>
 					<h3>HTML5</h3>					
 					<pre class="fragment">
 						<code class="xml">
@@ -141,12 +177,13 @@
 							    <aside>
 							        <div class="innersidebarwrapper"></div>
 							    </aside>
-							    &ltsection&gt
+							    &ltarticle&gt
 							        <div class="contentwrapper">
-							            <article></article>
-							            <article></article>
+							            <section></section>
+							            <section></section>
+							            <section></section>
 							        </div>
-							    &ltsection&gt
+							    &ltarticle&gt
 							    <footer></footer>
 							</div>
 						</code>					
@@ -334,6 +371,15 @@
 				</section>
 
 				<section class="shadows">
+					<h2>Into the shadow</h2>	
+					<h3>Styling</h3>
+					<hr>
+					<p>Adskilt fra resten av DOM</p>
+					<p>Styling av host/mål-elementet; :host</p>
+					<p>Tilgang til intern styling; &lt&lt&lt</p>
+				</section>
+
+				<section class="shadows">
 					<h2>Browser support</h2>	
 					<hr>
 
@@ -495,11 +541,6 @@
 				</section>
 
 				<section>
-					<h1>Polymer</h1>
-					<img src="/css/img/p-logo.svg"  style="background:none; border:none; box-shadow:none;"/>
-				</section>		
-
-				<section>
 					<h2>Ulemper</h2>	
 					<hr>	
 
@@ -510,7 +551,7 @@
 
 				<section>
 					<h1>Polymer</h1>
-					<img src="/css/img/p-logo.svg"  style="background:none; border:none; box-shadow:none;"/>
+					<img src="/css/img/polymer-logo.svg"  style="background:none; border:none; box-shadow:none;"/>
 				</section>
 
 				<section>
@@ -553,14 +594,28 @@
 
 				<section>
 					<h3>Google-elementer</h3>
-					<google-chart type="geo" style="height: 600px; width: 1000px" 
+					<google-chart type="geo" style="height: 700px; width: 1000px" 
 								data="[['Country', ''],['Germany', 1],['United States', 1],['Australia', 1],['Denmark', 1],['Finland', 1],['France', 1],['India', 1],['Netherlands', 1],['Poland', 1],['Spain', 1],['Sweden', 1],['United Kingdom', 1],['Vietnam', 1],['Norway', 1]]"
 								options="{'backgroundColor': 'transparent', 'tooltip.trigger': 'none', 'legend': 'none', 'minValue':1, 'values': [0,1], 'colors':['#4B2A91', '#4B2A91']}">
 				  </google-chart>
+					<p> <a href="http://googlewebcomponents.github.io/google-chart/">googlewebcomponents.github.io/google-chart/</a> </p>
 				</section>
 
 				<section>
-					<h3>++</h3>
+					<h3>Google-elementer</h3>
+					<google-map style="height: 500px; display: block" latitude="63.41745928602863" longitude="10.402603117907688">
+					<google-map-marker latitude="63.41745928602863" longitude="10.402603117907688" draggable="true" title="NTNU"></google-map-marker>
+					</google-map>
+					<p> <a href="http://googlewebcomponents.github.io/google-map/">googlewebcomponents.github.io/google-map/</a> </p>
+				</section>
+
+				<section>
+					<h3>Google-elementer</h3>
+					<p> <a href="http://googlewebcomponents.github.io/">googlewebcomponents.github.io</a> </p>
+				</section>
+
+				<section>
+					<img src="css/img/butwait.jpg">
 					<p> <a href="http://customelements.io">http://customelements.io</a> </p>
 				</section>
 
