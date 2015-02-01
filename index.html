@@ -65,6 +65,24 @@
 				</section>
 
 				<section>
+					<h3>Installer Grunt</h3>
+					<ol>
+						<li>Installer NodeJS (<a href="http://nodejs.org/">nodejs.org</a>)</li>
+						<li>Åpne et terminal/shell-vindu</li>
+						<li>
+							<pre>
+								<code>
+									npm install -g grunt-cli
+								</code>
+							</pre>
+						</li>
+						<li>Last ned prosjektet <a href="http://bit.ly/ciberweb">bit.ly/ciberweb</a></li>
+						<li>Åpne prosjektmappen i terminalen</li>
+						<li>Kjør webappen med grunt</li>
+					</ol>
+				</section>
+
+				<section>
 					<h3>Introduksjon til</h3>
 					<h1>Web Components</h1>
 				</section>
@@ -82,8 +100,6 @@
 						<li>Den gode nabo</li>
 					</ol>
 				</section>
-
-
 
 				<section>
 					<h3>HTML før html5</h3>					
@@ -112,7 +128,7 @@
 				</section>
 
 				<section>
-					<h3>html5</h3>					
+					<h3>HTML5</h3>					
 					<pre class="fragment">
 						<code class="xml">
 							<div class="wrapper">
@@ -188,33 +204,6 @@
 				</section>
 
 				<section>
-					<h2>Templates</h2>	
-					<hr>
-					<pre class="fragment">
-						<code class="xml">
-						  &lttemplate id="contact-template"&gt
-						    <div class="contact-header">
-						    	<content select="h2"></content>
-						    	<content select="img"></content>
-						    </div>
-						    <div class="detailed-info">
-						    	<content select="ul"></content>
-						    </div>
-						  &lt/template&gt
-						</code>					
-					</pre>
-
-					<pre class="fragment">
-						<code class="javascript">
-						     var template = document.querySelector('#contact-template');
-						     var clone = document.importNode(template.content, true);
-
-						     document.body.appendChild(clone);
-						</code>					
-					</pre>
-				</section>
-
-				<section>
 					<h3 onclick="addTemplate()">Templates</h3>	
 					<hr>
 					
@@ -287,13 +276,61 @@
 					<h2>Into the shadow</h2>	
 					<hr>
 
-					<pre>
+					<p class="fragment">Skjule støy</p>
+					<p class="fragment">Rydde i DOM</p>
+					<p class="fragment">Vedlikeholdbart</p>
+				</section>
+
+				<section class="shadows">
+					<h2>Into the shadow</h2>	
+					<h2></h2>	
+					<hr>
+
+					<pre class="fragment">
 						<code class="javascript">
-						    shadow = self.createShadowRoot();
-						    shadow.appendChild(document.importNode(template.content, true));
+							//Hent ut template fra tidligere
+							var template = document.querySelector("#contact-template");
 						</code>					
 					</pre>
+					<pre class="fragment">
+						<code class="javascript">
+							//Hent ut mål-elementet
+							var host = document.querySelector('contact-wrapper');
+						</code>	
+					</pre>
+					<pre class="fragment">
+						<code class="javascript">
+							//Lag en shadow root-node på mål-elementet
+							var root = host.createShadowRoot();
+						</code>	
+					</pre>
+					<pre class="fragment">
+						<code class="javascript">
+							//Klon innholdet og barn-noder, og legg til i shadow DOM
+							var clone = document.importNode(template.content, true);
+							root.appendChild(clone);
+						</code>	
+					</pre>	
 
+				</section>
+
+				<section>
+					<h2>Into the shadow</h2>	
+					<h3>Insertion points</h3>	
+					<hr>
+					<pre class="fragment">
+						<code class="xml">
+						  &lttemplate id="contact-template"&gt
+						    <div class="contact-header">
+						    	<content select="h2"></content>
+						    	<content select="img"></content>
+						    </div>
+						    <div class="detailed-info">
+						    	<content select="ul"></content>
+						    </div>
+						  &lt/template&gt
+						</code>					
+					</pre>
 				</section>
 
 				<section class="shadows">
@@ -308,6 +345,12 @@
 					</a>
 				</section>
 
+				<section class="shadows">
+					<h2>Into the shadow</h2>	
+					<hr>
+
+					<input type="date" />
+				</section>
 
 				<section class="shadows">
 					<h2>Shadow DOM visualizer</h2>	
@@ -315,8 +358,6 @@
 					<a href="http://html5-demos.appspot.com/shadowdom-visualizer" target="_blank">
 						<img src="css/img/shadowdomvisualizer.PNG"  style="background:none; border:none; box-shadow:none;"/>
 					</a>
-					
-
 				</section>
 
 				<section>
@@ -452,6 +493,15 @@
 						</code>					
 					</pre>
 				</section>		
+
+				<section>
+					<h2>Ulemper</h2>	
+					<hr>	
+
+					<p class="fragment">Mye JavaScript, ikke deklarativt</p>
+					<p class="fragment">Tidlig fase</p>
+					<p class="fragment">Dårlig nettleserstøtte</p>
+				</section>	
 
 				<section>
 					<h1>Polymer</h1>
