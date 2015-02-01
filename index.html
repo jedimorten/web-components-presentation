@@ -71,7 +71,7 @@
 				<section>
 					<h3>Installer Grunt</h3>
 					<ol>
-						<li>Installer NodeJS (<a href="http://nodejs.org/">nodejs.org</a>)</li>
+						<li>Installer NodeJS (<a href="http://nodejs.org/" target="_blank">nodejs.org</a>)</li>
 						<li>Åpne et terminal/shell-vindu</li>
 						<li>
 							<pre>
@@ -80,7 +80,7 @@
 								</code>
 							</pre>
 						</li>
-						<li>Last ned prosjektet <a href="http://bit.ly/ciberweb">bit.ly/ciberweb</a></li>
+						<li>Last ned prosjektet <a href="http://bit.ly/ciberweb" target="_blank">bit.ly/ciberweb</a></li>
 						<li>Åpne prosjektmappen i terminalen</li>
 						<li>Kjør webappen med grunt</li>
 					</ol>
@@ -96,9 +96,9 @@
 				</section>
 
 				<section>
-					<h3>Program</h3>					
+					<h2>Program</h2>					
 					<ol>
-						<li>Intro til web componoents</li>
+						<li>Intro til web components</li>
 						<li>Pause med pizza</li>
 						<li>Polymer</li>
 						<li>Den gode nabo</li>
@@ -164,32 +164,30 @@
 				</section>
 
 				<section>
-					<h3>HTML5</h3>					
+					<h2>HTML5</h2>					
 					<pre class="fragment">
-						<code class="xml">
-							<div class="wrapper">
-							    <header>
-							        <div class="innerheadwrapper">
-							            <div class="header"></div>
-							            <nav></nav>
-							        </div>
-							    </header>
-							    <aside>
-							        <div class="innersidebarwrapper"></div>
-							    </aside>
-							    &ltarticle&gt
-							        <div class="contentwrapper">
-							            <section></section>
-							            <section></section>
-							            <section></section>
-							        </div>
-							    &ltarticle&gt
-							    <footer></footer>
-							</div>
+						<code data-trim contenteditable class="xml">
+&lt;div class=&quot;wrapper&quot;&gt;
+    &lt;header&gt;
+        &lt;div class=&quot;innerheadwrapper&quot;&gt;
+            &lt;div class=&quot;header&quot;&gt;&lt;/div&gt;
+            &lt;nav&gt;&lt;/nav&gt;
+        &lt;/div&gt;
+    &lt;/header&gt;
+    &lt;aside&gt;
+        &lt;div class=&quot;innersidebarwrapper&quot;&gt;&lt;/div&gt;
+    &lt;/aside&gt;
+    &lt;article&gt;
+        &lt;div class=&quot;contentwrapper&quot;&gt;
+            &lt;section&gt;&lt;/section&gt;
+            &lt;section&gt;&lt;/section&gt;
+        &lt;/div&gt;
+    &lt;/article&gt;
+    &lt;footer&gt;&lt;/footer&gt;
+&lt;/div&gt;
 						</code>					
 					</pre>
 				</section>
-
 
 				<section>
 					<h2>Hva er likheten?</h2>	
@@ -202,6 +200,18 @@
 					<hr>
 					<h3 class="fragment">Tradisjonelt web<strong>SIDE</strong> syntax</h3>
 					<h3 class="fragment">Globale variabler</h3>
+				</section>
+
+				<section>
+					<h2>DOM?</h2>	
+					<hr>
+					<h3>Document Object Model</h3>
+					<ul>
+						<li>Plattform-uavhengig</li>
+						<li>Trestruktur / DOM-tre</li>
+						<li>Forbindelse mellom kode og layout</li>
+						<li>HTML / XML</li>
+					</ul>
 				</section>
 
 				<section>
@@ -226,7 +236,7 @@
 				<section>
 					<h2>Hva hadde vært kjekt?</h2>	
 					<hr>
-					<h3 class="fragment">Web<strong>Applikasjon</strong> syntax</h3>					
+					<h3 class="fragment">Web-app-syntaks</h3>
 					<h3 class="fragment">Komponenter</h3>
 					<h3 class="fragment">Scoping</h3>	
 				</section>
@@ -237,7 +247,7 @@
 					<h3 class="fragment">Templates</h3>
 					<h3 class="fragment">Shadow DOM</h3>
 					<h3 class="fragment">Custom elementer</h3>	
-					<h3 class="fragment">Html import</h3>			
+					<h3 class="fragment">HTML import</h3>
 				</section>
 
 				<section>
@@ -395,7 +405,7 @@
 					<h2>Into the shadow</h2>	
 					<hr>
 
-					<input type="date" />
+					<input type="date" style="font-size: 2em" />
 				</section>
 
 				<section class="shadows">
@@ -504,7 +514,7 @@
 				</script>
 
 				<section>
-					<h2>Html imports</h2>	
+					<h2>HTML imports</h2>	
 					<hr>
 					<p class="fragment">
 					  Latest commit:
@@ -556,22 +566,58 @@
 
 				<section>
 					<h2>Hvorfor Polymer?</h2>
-					
+					<img src="/css/img/oprah.jpg"  style="background:none; border:none; box-shadow:none;"/>
+				</section>
+
+				<section>
+					<h1>Arkitektur</h1>
+					<img src="css/img/polymer-architecture-all.svg"  style="height: 500px; background:none; border:none; box-shadow:none;">
 				</section>
 
 				<section>
 					<h2>Arkitektur</h2>
-					<img src="https://www.polymer-project.org/images/architecture-diagram.svg"  style="background:none; border:none; box-shadow:none;">
+					<img src="css/img/polymer-architecture-native.svg"  style="height: 500px; background:none; border:none; box-shadow:none;">
 				</section>
 
 				<section>
 					<h2>Arkitektur</h2>
-					<p>Polyfills</p>
+					<h3>Native</h3>
+
 				</section>
 
 				<section>
 					<h2>Arkitektur</h2>
-					<p>platform.js</p>
+					<img src="css/img/polymer-architecture-foundation.svg"  style="height: 500px; background:none; border:none; box-shadow:none;">
+				</section>
+
+				<section>
+					<h2>Arkitektur - Foundation</h2>
+					<p>Polyfills for kjente egenskaper:</p>
+					<ul>
+						<li>Shadow DOM</li>
+						<li>Custom Elements</li>
+						<li>HTML Imports</li>
+						<li>++</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Arkitektur</h2>
+					<img src="css/img/polymer-architecture-core.svg"  style="height: 500px; background:none; border:none; box-shadow:none;">
+					<aside class="notes">
+						<p>Grunnleggende elementer i Polymer</p>
+					</aside>
+				</section>
+
+				<section>
+					<h2>Arkitektur</h2>
+					<img src="css/img/polymer-architecture-elements.svg"  style="height: 500px; background:none; border:none; box-shadow:none;">
+				</section>
+
+				<section>
+					<h2>Arkitektur</h2>
+					<img src="css/img/polymer-architecture-app.svg"  style="height: 500px; background:none; border:none; box-shadow:none;">
+					<p><a href="https://www.polymer-project.org/" target="_blank">www.polymer-project.org</a></p>
 				</section>
 
 				<section>
@@ -598,25 +644,25 @@
 								data="[['Country', ''],['Germany', 1],['United States', 1],['Australia', 1],['Denmark', 1],['Finland', 1],['France', 1],['India', 1],['Netherlands', 1],['Poland', 1],['Spain', 1],['Sweden', 1],['United Kingdom', 1],['Vietnam', 1],['Norway', 1]]"
 								options="{'backgroundColor': 'transparent', 'tooltip.trigger': 'none', 'legend': 'none', 'minValue':1, 'values': [0,1], 'colors':['#4B2A91', '#4B2A91']}">
 				  </google-chart>
-					<p> <a href="http://googlewebcomponents.github.io/google-chart/">googlewebcomponents.github.io/google-chart/</a> </p>
+					<p> <a href="http://googlewebcomponents.github.io/google-chart/" target="_blank">googlewebcomponents.github.io/google-chart/</a> </p>
 				</section>
 
 				<section>
 					<h3>Google-elementer</h3>
 					<google-map style="height: 500px; display: block" latitude="63.41745928602863" longitude="10.402603117907688">
-					<google-map-marker latitude="63.41745928602863" longitude="10.402603117907688" draggable="true" title="NTNU"></google-map-marker>
+						<google-map-marker latitude="63.41745928602863" longitude="10.402603117907688" draggable="true" title="NTNU"></google-map-marker>
 					</google-map>
-					<p> <a href="http://googlewebcomponents.github.io/google-map/">googlewebcomponents.github.io/google-map/</a> </p>
+					<p> <a href="http://googlewebcomponents.github.io/google-map/" target="_blank">googlewebcomponents.github.io/google-map/</a> </p>
 				</section>
 
 				<section>
 					<h3>Google-elementer</h3>
-					<p> <a href="http://googlewebcomponents.github.io/">googlewebcomponents.github.io</a> </p>
+					<p> <a href="http://googlewebcomponents.github.io/" target="_blank">googlewebcomponents.github.io</a> </p>
 				</section>
 
 				<section>
 					<img src="css/img/butwait.jpg">
-					<p> <a href="http://customelements.io">http://customelements.io</a> </p>
+					<p> <a href="http://customelements.io" target="_blank">customelements.io</a> </p>
 				</section>
 
 				<section>
@@ -625,39 +671,57 @@
 				</section>
 
 				<section>
+					<h2>Syntaks</h2>
 					<h3>Expressions</h3>
 					
 				</section>
 
 				<section>
+					<h2>Syntaks</h2>
 					<h3>Data-binding</h3>
 
 				</section>
 
 				<section>
-					<h2>Insertion points</h2>
+					<h2>Syntaks</h2>
+					<h3>Insertion points</h3>
 
 				</section>
 
 				<section>
-					<h2>Lifecycle callbacks</h2>
+					<h2>Syntaks</h2>
+					<h3>Lifecycle callbacks</h3>
 
 				</section>
 
 				<section>
 					<h2>Polymer Designer</h2>
 					<p> <a href="https://polymer-designer.appspot.com/ ">polymer-designer.appspot.com</a> </p>
+
+					<aside class="notes">
+						<p>Data-binding</p>
+						<p>Prototyping</p>
+					</aside>
 				</section>
+
+				<section>
+					<h2>Ulemper</h2>	
+					<hr>	
+
+					<p class="fragment">Manglende dokumentasjon</p>
+					<p class="fragment">Fortsatt under utvikling</p>
+					<p class="fragment">Uferdig feilhåndtering</p>
+				</section>	
 
 				<section>
 					<h2>Spørsmål?</h2>	
 					<hr>	
-					<p> <a href="http://polymer-project.com">http://polymer-project.com </a> </p>
+					<p> <a href="http://polymer-project.com">polymer-project.com</a> </p>
 
-					<p> <a href="http://x-tags.org/">http://x-tags.org/</a> </p>
+					<p> <a href="http://x-tags.org/">x-tags.org</a> </p>
 
 
-					<p> <a href="http://webcomponents.org/">http://webcomponents.org/</a> </p>
+					<p> <a href="http://webcomponents.org/">webcomponents.org</a> </p>
 				</section>
 
 				<section>
