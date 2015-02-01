@@ -37,7 +37,7 @@
 		<link rel="import" href="bower_components/google-chart/google-chart.html">
 		<link rel="import" href="bower_components/google-map/google-map.html">
 		<link rel="import" href="bower_components/google-map/google-map-directions.html">
-		
+
 
 		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
 		<script>
@@ -96,7 +96,7 @@
 				</section>
 
 				<section>
-					<h3>Program</h3>					
+					<h3>Program</h3>
 					<ol>
 						<li>Intro til web componoents</li>
 						<li>Pause med pizza</li>
@@ -108,10 +108,10 @@
 				<section>
 					<h1>HTML før HTML5</h1>
 					<img src="/css/img/html4.png"  style="background:none; border:none; box-shadow:none;"/>
-				</section>	
+				</section>
 
 				<section>
-					<h3>HTML før HTML5</h3>					
+					<h3>HTML før HTML5</h3>
 					<pre class="fragment">
 						<code class="xml">
 							<div class="wrapper">
@@ -132,14 +132,14 @@
 							    </div>
 							    <div class="footer"></div>
 							</div>
-						</code>					
+						</code>
 					</pre>
 				</section>
 
 				<section>
 					<h1>HTML5!</h1>
 					<img src="/css/img/HTML5.svg"  style="width: 500px; background:none; border:none; box-shadow:none;"/>
-				</section>	
+				</section>
 
 				<section>
 					<h2>HTML5</h2>
@@ -164,7 +164,7 @@
 				</section>
 
 				<section>
-					<h3>HTML5</h3>					
+					<h3>HTML5</h3>
 					<pre class="fragment">
 						<code class="xml">
 							<div class="wrapper">
@@ -186,85 +186,129 @@
 							    &ltarticle&gt
 							    <footer></footer>
 							</div>
-						</code>					
+						</code>
 					</pre>
 				</section>
 
 
 				<section>
-					<h2>Hva er likheten?</h2>	
+					<h2>Hva er likheten?</h2>
 					<hr>
-					<img src="/css/img/wrap.jpg" class="fragment"/>		
+					<img src="/css/img/wrap.jpg" class="fragment"/>
 				</section>
 
 				<section>
-					<h2>Problemer?</h2>	
+					<h2>Problemer?</h2>
 					<hr>
 					<h3 class="fragment">Tradisjonelt web<strong>SIDE</strong> syntax</h3>
 					<h3 class="fragment">Globale variabler</h3>
 				</section>
 
 				<section>
-					<h2>Globale variabler?</h2>	
+					<h2>Globale variabler?</h2>
 					<hr>
 					<h3>DOM</h3>
 					<h3>CSS</h3>
 				</section>
 
 				<section>
-					<h2>Hva gjør man?</h2>	
+					<h2>Hva gjør man?</h2>
 					<hr>
-					<img src="/css/img/wrapall.jpg" class="fragment"/>		
+					<img src="/css/img/wrapall.jpg" class="fragment"/>
 				</section>
 
 				<section>
-					<h2>Facebook</h2>	
+					<h2>Facebook</h2>
 					<hr>
-					<img src="/css/img/facebookdiv.png"/>		
+					<img src="/css/img/facebookdiv.png"/>
 				</section>
 
 				<section>
-					<h2>Hva hadde vært kjekt?</h2>	
+					<h2>Hva hadde vært kjekt?</h2>
 					<hr>
-					<h3 class="fragment">Web<strong>Applikasjon</strong> syntax</h3>					
+					<h3 class="fragment">Web<strong>Applikasjon</strong> syntax</h3>
 					<h3 class="fragment">Komponenter</h3>
-					<h3 class="fragment">Scoping</h3>	
+					<h3 class="fragment">Scoping</h3>
 				</section>
 
 				<section>
-					<h2>Fire nye standarder</h2>	
+					<h2>Fire nye standarder</h2>
 					<hr>
 					<h3 class="fragment">Templates</h3>
 					<h3 class="fragment">Shadow DOM</h3>
-					<h3 class="fragment">Custom elementer</h3>	
-					<h3 class="fragment">Html import</h3>			
+					<h3 class="fragment">Custom elementer</h3>
+					<h3 class="fragment">Html import</h3>
 				</section>
 
 				<section>
-					<h3 onclick="addTemplate()">Templates</h3>	
+					<h3>Templates</h3>
 					<hr>
-					
+					<p class="fragment">Skjult DOM<p>
+					<p class="fragment">Overloading script<p>
+				</section>
+				<section>
+					<h3>Skjult DOM</h3>
+					<pre class="fragment">
+						<code class="html">
+							<div id="mytemplate" style="display: none">
+								<img src="logo.png">
+								<div class="comment"></div>
+							</div>
+						</code>
+					</pre>
+					<p class="fragment">:) Bruker DOM - nettleseren kjenner DOM. Den er flink med den. Lett å klone.</p>
+					<p class="fragment">:) Ingen ting blir rendret - ved å legge til display: none blir blokken skjult</p>
+					<p class="fragment">:( Selv om innholdet er skult blir det send nettverksforespørsl pga bildet</p>
+					<p class="fragment">:( Slitsomt å style  og tematisere - En må prefixe alle CSS regler med #mytemplate. Dette blir for slitsomt, og kan bli problemer hvis en side allerede har et element med samme id</p>
+
+				</section>
+				<section>
+					<h3>Overloading script</h3>
+					<pre class="fragment">
+						<code class="javascript">
+							<script id="mytemplate" type="text/x-handlebars-template">
+								<img src="logo.png">
+								<div class="comment"></div>
+							</script>
+						</code>
+					</pre>
+					<p class="fragment">:) Ingenting blir rendra - nettleseren rendrer ikke denne blokken fordi &lt;script&gt; har display:none som default.</p>
+					<p class="fragment">:) Nettleseren parser ikke script innholdet som JS fordi typen er sett til noe annet enn "text/javascript".</p>
+					<p class="fragment">:( Sikkerhetsproblemer - oppmuntrer til bruk av .innerHTML. Run-time string parsing av bruker levert data kan
+						føre til XSS(cross side scripting) sårbarheter.</p>
+				</section>
+				<section>
+					<h3 onclick="addTemplate()">Templates</h3>
+					<hr>
+					<p class="fragment">Innholdet er skjult i DOM og blir ikke rendret.</p>
+					<p class="fragment">Innholdet som er i templaten skal ikke ha sideeffekter.
+						Script blir ikke kjørt, bilder blir ikke lastet, audio blir ikke avspilt,
+						... før templaten blir tatt i bruk.</p>
+					<p class="fragment">Innholdet er ansett som å ikke være i dokumentet.
+						Bruk av document.getElementById() eller querySelector() i hovedsiden vil ikke returnere barnnoder av templaten. </p>
+					<p class="fragment">Templater kan bli plassert hvor som helst inne i
+						&lt;head&gt;, &lt;body&gt; or &lt;frameset&gt; og kan inneholde alt innhold som er lovelig i disse elementene.</p>
 					<template id="contact-template">
 						<style>
 						#template-wrapper .contact-wrapper {
-							  position: relative;
-							  background-color: #4B2A91;
-							  color: #C0D72F;
-							  padding: 20px;
-							  height: 300px;
-							  width:500px;
-							  font-size: 1.2rem;
-							  font-weight: 300;
-							  margin: 0 auto;
-							  -webkit-user-select: none;
+								position: relative;
+								background-color: #4B2A91;
+								color: #C0D72F;
+								padding: 20px;
+								height: 300px;
+								width:500px;
+								font-size: 1.2rem;
+								font-weight: 300;
+								margin: 0 auto;
+								-webkit-user-select: none;
 						}
 						#template-wrapper .contact-header {
-						  margin-bottom: 10px;
+							margin-bottom: 10px;
 						}
 
 						#template-wrapper .contact-header h2 {
-						  font-size: 24px;
-						  color:#000;
+							font-size: 24px;
+							color:#000;
 						}
 
 						#template-wrapper .contact-header img {
@@ -279,7 +323,7 @@
 						#template-wrapper .detailed-info {
 							margin-top:-70px;
 						}
-						
+
 						</style>
 						<div class="contact-wrapper">
 							<div class="contact-header">
@@ -298,19 +342,19 @@
 					<script>
 						var addTemplate = function (){
 							var template = document.querySelector('#contact-template');
-						     var clone = document.importNode(template.content, true);
+								var clone = document.importNode(template.content, true);
 
-						     document.querySelector('#template-wrapper').appendChild(clone);
-						 }
+								document.querySelector('#template-wrapper').appendChild(clone);
+						}
 					</script>
 
 					<pre id="template-wrapper" style="height:400px;">
-										
+
 					</pre>
 				</section>
 
 				<section class="shadows">
-					<h2>Into the shadow</h2>	
+					<h2>Into the shadow</h2>
 					<hr>
 
 					<p class="fragment">Skjule støy</p>
@@ -319,41 +363,41 @@
 				</section>
 
 				<section class="shadows">
-					<h2>Into the shadow</h2>	
-					<h2></h2>	
+					<h2>Into the shadow</h2>
+					<h2></h2>
 					<hr>
 
 					<pre class="fragment">
 						<code class="javascript">
 							//Hent ut template fra tidligere
 							var template = document.querySelector("#contact-template");
-						</code>					
+						</code>
 					</pre>
 					<pre class="fragment">
 						<code class="javascript">
 							//Hent ut mål-elementet
 							var host = document.querySelector('contact-wrapper');
-						</code>	
+						</code>
 					</pre>
 					<pre class="fragment">
 						<code class="javascript">
 							//Lag en shadow root-node på mål-elementet
 							var root = host.createShadowRoot();
-						</code>	
+						</code>
 					</pre>
 					<pre class="fragment">
 						<code class="javascript">
 							//Klon innholdet og barn-noder, og legg til i shadow DOM
 							var clone = document.importNode(template.content, true);
 							root.appendChild(clone);
-						</code>	
-					</pre>	
+						</code>
+					</pre>
 
 				</section>
 
 				<section>
-					<h2>Into the shadow</h2>	
-					<h3>Insertion points</h3>	
+					<h2>Into the shadow</h2>
+					<h3>Insertion points</h3>
 					<hr>
 					<pre class="fragment">
 						<code class="xml">
@@ -366,12 +410,12 @@
 						    	<content select="ul"></content>
 						    </div>
 						  &lt/template&gt
-						</code>					
+						</code>
 					</pre>
 				</section>
 
 				<section class="shadows">
-					<h2>Into the shadow</h2>	
+					<h2>Into the shadow</h2>
 					<h3>Styling</h3>
 					<hr>
 					<p>Adskilt fra resten av DOM</p>
@@ -380,7 +424,7 @@
 				</section>
 
 				<section class="shadows">
-					<h2>Browser support</h2>	
+					<h2>Browser support</h2>
 					<hr>
 
 					<a href="http://caniuse.com/#search=shadow%20dom" target="_blank">
@@ -392,14 +436,14 @@
 				</section>
 
 				<section class="shadows">
-					<h2>Into the shadow</h2>	
+					<h2>Into the shadow</h2>
 					<hr>
 
 					<input type="date" />
 				</section>
 
 				<section class="shadows">
-					<h2>Shadow DOM visualizer</h2>	
+					<h2>Shadow DOM visualizer</h2>
 					<hr>
 					<a href="http://html5-demos.appspot.com/shadowdom-visualizer" target="_blank">
 						<img src="css/img/shadowdomvisualizer.PNG"  style="background:none; border:none; box-shadow:none;"/>
@@ -407,18 +451,18 @@
 				</section>
 
 				<section>
-					<h2>Custom Elementer</h2>	
+					<h2>Custom Elementer</h2>
 					<hr>
 					<ul>
 						<li class="fragment">navne-konvensjon</li>
 						<li class="fragment">kan utvide eksiterende html-elementer</li>
 						<li class="fragment">kan benytte seg av templates og shadow dom</li>
 						<li class="fragment">life-cycle callbacks</li>
-					</ul>							
+					</ul>
 				</section>
 
 				<section>
-					<h2>Custom Elements</h2>	
+					<h2>Custom Elements</h2>
 					<hr>
 					<pre>
 						<code class="xml">
@@ -427,18 +471,18 @@
 					</pre>
 					<pre>
 						<button	is="unclickable-button">Ikke prøv å klikk på meg</button>
-					</pre>						
+					</pre>
 				</section>
 
 				<section>
-					<h2>Life-cycle callbacks</h2>	
+					<h2>Life-cycle callbacks</h2>
 					<hr>
 					<ul>
 						<li class="fragment">createdCallback - instans av element opprettet.</li>
 						<li class="fragment">attachedCallback - instans av element lagt til DOM</li>
 						<li class="fragment">detachedCallback - instans fjerne fra DOM</li>
 						<li class="fragment">attributeChangedCallback - atributt på element lagt til/fjernet/endret</li>
-					</ul>							
+					</ul>
 				</section>
 
 				<template id="unclickable-template">
@@ -464,8 +508,8 @@
 				    	border: 1px solid transparent;
 				    	border-radius: 4px;
 				    }
-				      #shadow-button { 
-				      	background-color: red; 
+				      #shadow-button {
+				      	background-color: red;
 				      	display: inline-block;
 				      	padding: 6px 12px;
 				      	margin-bottom: 0;
@@ -509,14 +553,14 @@
 					    });
 					};
 
-					document.registerElement('unclickable-button', 
+					document.registerElement('unclickable-button',
 											 {prototype: proton,
 											  extends: 'button' }
 											 );
 				</script>
 
 				<section>
-					<h2><a href="http://localhost:9001/LF/0.5">Kontakt-app</a></h2>	
+					<h2><a href="http://localhost:9001/LF/0.5">Kontakt-app</a></h2>
 					<hr>
 					<pre>
 						<code class="javascript">
@@ -539,12 +583,12 @@
 							    shadow.appendChild(clone);
 							};
 							document.registerElement('contact-tile', {prototype: proto});
-						</code>		
-					</pre>			
+						</code>
+					</pre>
 				</section>
 
 				<section>
-					<h2>Html imports</h2>	
+					<h2>Html imports</h2>
 					<hr>
 					<p class="fragment">
 					  Latest commit:
@@ -558,36 +602,36 @@
 						  &lttime is="relative-time" datetime="2015-01-27T16:00:00.000Z"&gt
 						    Oops! This browser doesn't support Web Components.
 						  &lt/time&gt
-						</code>					
+						</code>
 					</pre>
 				</section>
 
 				<section>
-					<h2>Imports</h2>	
-					<hr>	
+					<h2>Imports</h2>
+					<hr>
 					<x-gif class="fragment" src="gifs/dog.gif" speed="5"></x-gif>
 
 					<pre class="fragment">
 						<code class="xml">
 							<link rel="import" href="dist/x-gif.html">
-						</code>					
+						</code>
 					</pre>
 
 					<pre class="fragment">
 						<code class="xml">
 							<x-gif src="gifs/dog.gif" speed="5"></x-gif>
-						</code>					
+						</code>
 					</pre>
 				</section>
 
 				<section>
-					<h2>Ulemper</h2>	
-					<hr>	
+					<h2>Ulemper</h2>
+					<hr>
 
 					<p class="fragment">Mye JavaScript, ikke deklarativt</p>
 					<p class="fragment">Tidlig fase</p>
 					<p class="fragment">Dårlig nettleserstøtte</p>
-				</section>	
+				</section>
 
 				<section>
 					<h1>Polymer</h1>
@@ -596,7 +640,7 @@
 
 				<section>
 					<h2>Hvorfor Polymer?</h2>
-					
+
 				</section>
 
 				<section>
@@ -710,7 +754,7 @@
 
 				<section>
 					<h3>Expressions</h3>
-					
+
 				</section>
 
 				<section>
@@ -783,7 +827,7 @@
 
 				<section>
 					<h3>Google-elementer</h3>
-					<google-chart type="geo" style="height: 700px; width: 1000px" 
+					<google-chart type="geo" style="height: 700px; width: 1000px"
 								data="[['Country', ''],['Germany', 1],['United States', 1],['Australia', 1],['Denmark', 1],['Finland', 1],['France', 1],['India', 1],['Netherlands', 1],['Poland', 1],['Spain', 1],['Sweden', 1],['United Kingdom', 1],['Vietnam', 1],['Norway', 1]]"
 								options="{'backgroundColor': 'transparent', 'tooltip.trigger': 'none', 'legend': 'none', 'minValue':1, 'values': [0,1], 'colors':['#4B2A91', '#4B2A91']}">
 				  </google-chart>
@@ -808,7 +852,7 @@
 					<p> <a href="http://customelements.io">http://customelements.io</a> </p>
 				</section>
 
-				
+
 
 				<section>
 					<h2>Polymer Designer</h2>
@@ -816,8 +860,8 @@
 				</section>
 
 				<section>
-					<h2>Spørsmål?</h2>	
-					<hr>	
+					<h2>Spørsmål?</h2>
+					<hr>
 					<p> <a href="http://polymer-project.com">http://polymer-project.com </a> </p>
 
 					<p> <a href="http://x-tags.org/">http://x-tags.org/</a> </p>
@@ -827,10 +871,10 @@
 				</section>
 
 				<section>
-					<h2>Jobb?</h2>	
-					<hr>	
+					<h2>Jobb?</h2>
+					<hr>
 					<p >Nina Orucevic / nina.orucevic@ciber.com</p>
-					
+
 				</section>
 			</div>
 
@@ -861,7 +905,7 @@
 					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
 					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
 					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { 
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() {
 						hljs.initHighlightingOnLoad(); } },
 					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
 					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
