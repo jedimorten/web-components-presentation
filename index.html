@@ -422,6 +422,7 @@
 					<ul>
 						<li class="fragment">navne-konvensjon</li>
 						<li class="fragment">kan utvide eksiterende html-elementer</li>
+						<li class="fragment">kan benytte seg av templates og shadow dom</li>
 						<li class="fragment">life-cycle callbacks</li>
 					</ul>							
 				</section>
@@ -437,6 +438,17 @@
 					<pre>
 						<button	is="unclickable-button">Ikke prøv å klikk på meg</button>
 					</pre>						
+				</section>
+
+				<section>
+					<h2>Life-cycle callbacks</h2>	
+					<hr>
+					<ul>
+						<li class="fragment">createdCallback - instans av element opprettet.</li>
+						<li class="fragment">attachedCallback - instans av element lagt til DOM</li>
+						<li class="fragment">detachedCallback - instans fjerne fra DOM</li>
+						<li class="fragment">attributeChangedCallback - atributt på element lagt til/fjernet/endret</li>
+					</ul>							
 				</section>
 
 				<template id="unclickable-template">
@@ -515,6 +527,35 @@
 
 				<section>
 					<h2>HTML imports</h2>	
+					<h2><a href="http://localhost:9001/LF/0.5" target="_blank">Kontakt-app</a></h2>	
+					<hr>
+					<pre>
+						<code class="javascript">
+							var proto = Object.create(HTMLElement.prototype);
+							proto.createdCallback = function() {
+							    var self = this,
+							        opened = false,
+							        template = document.querySelector('#contact-template'),
+							        shadow = this.createShadowRoot(),
+							        clone = document.importNode(template.content, true);
+							    self.addEventListener("click", function(){
+							        var d = shadow.querySelector(".detailed-info");
+							        if(!opened){
+							            d.className = "detailed-info";
+							        } else {
+							            d.className = d.className + " hidden";
+							        }
+							        opened = !opened;
+							    });
+							    shadow.appendChild(clone);
+							};
+							document.registerElement('contact-tile', {prototype: proto});
+						</code>		
+					</pre>			
+				</section>
+
+				<section>
+					<h2>Html imports</h2>	
 					<hr>
 					<p class="fragment">
 					  Latest commit:
@@ -621,6 +662,155 @@
 				</section>
 
 				<section>
+					<h2>Syntaks - Vanilla</h2>
+					<pre>
+						<h4>Deklarer element</h4>
+						<code class="xml">
+							<template id="contact-template">
+								<style></style>
+							</template>
+							<script>
+							var proto = Object.create(HTMLElement.prototype),
+							    link = document.currentScript.ownerDocument;
+							    template = link.querySelector('#contact-template');
+							proto.createdCallback = function() {
+							    //manage stuff
+							};
+							document.registerElement('contact-tile', {prototype: proto});
+							</script>
+						</code>
+						<h4>Bruk element</h4>
+						<code class="xml">
+							<contact-tile></contact-tile>
+						</code>
+					</pre>
+				</section>
+
+				<section>
+					<h2>Syntaks - Polymer</h2>
+					<pre>
+						<h4>Deklarer element</h4>
+						<code class="xml">
+							<polymer-element name="contact-tile">
+							    <template></template>
+							    <script>
+							        Polymer({
+							            //manage stuff
+							        });
+							    </script>
+							</polymer-element>
+						</code>
+						<h4>Bruk element</h4>
+						<code class="xml">
+							<contact-tile></contact-tile>
+						</code>
+					</pre>
+				</section>
+
+				<section>
+					<h3>Attributes</h3>
+					<hr>
+					<p> Når man deklarerer et polymer-element har polymer reservert noen atributter:</p>
+					<ul>
+						<li class="fragment">name - registrer navnet på elementet </li>
+						<li class="fragment">attributes - publiserte atributter </li>
+						<li class="fragment">extends - om man utvider eksisterende elementer </li>
+						<li class="fragment">noscript - om man lager et element uten behov for js </li>
+						<li class="fragment">constructor - navn på javascript constructor, om man ønsker new CustomElement() i js.</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3><a href="https://www.polymer-project.org/docs/polymer/polymer.html#published-properties" target="_blank">Attributes</a></h3>
+					<hr>
+					<pre>
+						<code class="xml">
+							<polymer-element name="contact-tile" attributes="displayDetails favorite"></polymer-element>
+						</code>
+						<code class="javascript">
+							Polymer({
+							    displayDetails: false,
+							    favorite: false
+							 });
+						</code>
+					</pre>
+					<pre>
+						<code class="xml">
+							<polymer-element name="contact-tile"></polymer-element>
+						</code>
+						<code class="javascript">
+							Polymer({
+							   publish: {
+							     displayDetails: {
+							       value: false,
+							       reflect: true
+							     },
+							     favorite: {
+							       value: false,
+							       reflect: true
+							     }
+							   }
+							 });
+						</code>
+					</pre>
+				</section>
+
+				<section>
+					<h3>Expressions</h3>
+					
+				</section>
+
+				<section>
+					<h3>Data-binding</h3>
+
+				</section>
+
+				<section>
+					<h2>Insertion points</h2>
+
+				</section>
+
+				<section>
+					<h2>Lifecycle callbacks</h2>
+					<table style="font-size:14px;">
+					  <thead>
+					    <tr>
+					      <th>Spec</th>
+					      <th>Polymer</th>
+					    </tr>
+					  </thead>
+					  <tbody>
+					    <tr>
+					      <td>createdCallback</td>
+					      <td>created</td>
+					    </tr>
+					    <tr>
+					      <td>-</td>
+					      <td>ready</td>
+					      <td>The &lt;polymer-element&gt; has been fully prepared (e.g. shadow DOM created, property observers setup, event listeners attached, etc).</td>
+					    </tr>
+					    <tr>
+					      <td>attachedCallback</td>
+					      <td>attached</td>
+					    </tr>
+					    <tr>
+					      <td>-</td>
+					      <td>domReady</td>
+					      <td>Called when the element’s initial set of children are guaranteed to exist. This is an appropriate time to poke at the element’s parent or light DOM children. Another use is when you have sibling custom elements (e.g. they’re .innerHTML‘d together, at the same time). Before element A can use B’s API/properties, element B needs to be upgraded. The domReady callback ensures both elements exist.</td>
+					    </tr>
+					    <tr>
+					      <td>detachedCallback</td>
+					      <td>detached</td>
+					    </tr>
+					    <tr>
+					      <td>attributeChangedCallback</td>
+					      <td>attributeChanged</td>
+					    </tr>
+					  </tbody>
+					</table>
+				</section>
+
+				<section>
 					<h2>Elementer</h2>
 					<p class="fragment">Core</p>
 					<p class="fragment">Paper</p>
@@ -629,12 +819,12 @@
 				</section>
 
 				<section>
-					<h3>Core</h3>
+					<h3><a href="https://www.polymer-project.org/components/core-elements/demo.html#" target="_blank">Core</a></h3>
 
 				</section>
 
 				<section>
-					<h3>Paper</h3>
+					<h3><a href="https://www.polymer-project.org/components/paper-elements/demo.html#paper-checkbox"  target="_blank">Paper</a></h3>
 
 				</section>
 
