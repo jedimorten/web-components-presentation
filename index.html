@@ -432,7 +432,8 @@
 					<hr>
 					<p>Adskilt fra resten av DOM</p>
 					<p>Styling av host/mål-elementet; :host</p>
-					<p>Tilgang til intern styling; &lt&lt&lt</p>
+					<p>Styling av rot-elementet; ::shadow</p>
+					<p>Tilgang til intern styling; &gt&gt&gt</p>
 				</section>
 
 				<section>
@@ -457,33 +458,44 @@
 
 				<section>
 					<h2>Into the shadow</h2>
-					<h3>Styling - ::shadow</h3>
+					<h3>Styling - Selecting into the shadow</h3>
 					<hr>
 					<pre class="fragment">
 						<code class="css">
-:host {
-  opacity: 0.4;
-}
-:host(:hover) {
-  opacity: 1;
-}
-:host(:active) {
-  opacity: 1;
-  background-color: blue;
-}
+						  .contact-tile::shadow h2 {
+						    color: red;
+						  }
 						</code>
 					</pre>
+					<p>Styling av shadow DOM fra utsiden</p>
+					<p>Velger rot-elementet / shadow root</p>
 				</section>
 
 				<section>
 					<h2>Into the shadow</h2>
-					<h3>Styling - /deep/ &lt&lt&lt</h3>
+					<h3>Shadow-piercing descendant combinator</h3>
 					<hr>
 					<pre class="fragment">
 						<code class="css">
+.contact-tile /deep/ .detailed-info{
+  ...
+}
 
-						</code>
+.contact-tile &gt&gt&gt .detailed-info{
+  ...
+}
+						</code>					
 					</pre>
+				</section>
+
+				<section>
+					<h2>Into the shadow</h2>	
+					<h3>Shadow-piercing descendant combinator</h3>
+					<hr>
+					<p class="fragment">Velger alle matchende elementer</p>
+					<p class="fragment">Kraftigere enn ::shadow</p>
+					<p class="fragment">/deep/ forsvinner, erstattes med:</p>
+					<p class="fragment">&gt&gt&gt - null nettleserstøtte</p>
 				</section>
 
 				<section class="shadows">
@@ -888,7 +900,13 @@
 
 				<section>
 					<h3>Touch events</h3>
-					<a href="https://www.polymer-project.org/docs/polymer/touch.html"></a>
+					<p>Kryssplattform</p>
+					<p>Mus + touch</p>
+					<p>Lite overhead</p>
+
+					<aside class="notes">
+						<a href="https://www.polymer-project.org/docs/polymer/touch.html"></a>
+					</aside>
 				</section>
 
 				<section>
@@ -1048,6 +1066,18 @@
 						</code>
 					</pre>
 
+				</section>
+
+				<section>
+					<h3>Data binding - engangs</h3>
+					<pre>
+						<code>
+							<input type="text" value="Verdi som bare settes inn en gang: [[ value ]]">
+						</code>
+					</pre>
+					<p>Blir inaktiv etter første binding</p>
+					<p>Fordel for ytelsen</p>
+					<p>Eksperimentell!</p>
 				</section>
 
 				<section>
