@@ -595,7 +595,7 @@
 					<h2>Ulemper</h2>	
 					<hr>	
 
-					<p class="fragment">Mye JavaScript, ikke deklarativt</p>
+					<p class="fragment">Mye overhead, ikke deklarativt</p>
 					<p class="fragment">Tidlig fase</p>
 					<p class="fragment">Dårlig nettleserstøtte</p>
 				</section>	
@@ -608,6 +608,19 @@
 				<section>
 					<h2>Hvorfor Polymer?</h2>
 					<img src="/css/img/oprah.jpg"  style="background:none; border:none; box-shadow:none;"/>
+				</section>
+
+				<section>
+					<h2>Hvorfor Polymer?</h2>
+
+					<a href="https://www.polymer-project.org/resources/compatibility.html" target="_blank">
+						<img src="css/img/android-logo.svg" width="150px" style="background:none; border:none; box-shadow:none;"/>
+						<img src="css/img/chrome-logo.svg"  width="150px" style="background:none; border:none; box-shadow:none;"/>
+						<img src="css/img/opera-logo.PNG"  width="150px" style="background:none; border:none; box-shadow:none;"/>
+						<img src="css/img/firefox-logo.PNG"  width="150px" style="background:none; border:none; box-shadow:none;"/>
+						<img src="css/img/safari-logo.PNG"  width="150px" style="background:none; border:none; box-shadow:none;"/>
+						<img src="css/img/ie-logo.svg"  width="150px" style="background:none; border:none; box-shadow:none;"/>
+					</a>
 				</section>
 
 				<section>
@@ -761,8 +774,138 @@
 				</section>
 
 				<section>
-					<h3>Data-binding</h3>
+					<h3>Touch events</h3>
+					<a href="https://www.polymer-project.org/docs/polymer/touch.html"></a>
+				</section>
 
+				<section>
+					<h3>Data binding - to-veis</h3>
+					<pre>
+						<code>
+<polymer-element name="contact-tile">
+  <template>
+    {{name}} studerte på {{education}}
+  </template>
+  <script>
+    Polymer('contact-tile', {
+      ready: function() {
+        this.name = 'Perry';
+        this.education = 'NTNU';
+      }
+    });
+  </script>
+</polymer-element>
+						</code>
+					</pre>
+				</section>
+
+				<section>
+					<h3>Data binding - iterativt</h3>
+					<pre>
+						<code style="overflow: hidden">
+<polymer-element name="contact-tile">
+  <template>
+    <ul>
+      <template repeat="{{contact in contacts}}">
+        <li>{{contact.name}}</li>
+      </template>
+    </ul>
+  </template>
+  <script>
+    Polymer('contact-tile', {
+      ready: function() {
+        this.contacts = [
+			  {'name': 'Morten Kjelling', 'position': 'Frontend / .NET'},
+			  {'name': 'Alexander Perry', 'position': 'Frontend / .NET'},
+			  {'name': 'Bjørn Vegard Thoresen', 'position': '.NET'}
+        ];
+      }
+    });
+  </script>
+</polymer-element>
+						</code>
+					</pre>
+				</section>
+
+				<section>
+					<h3>Data binding - if</h3>
+					<pre>
+						<code style="overflow: hidden">
+<polymer-element name="contact-tile">
+  <template>
+    <ul>
+      <template if="{{!contacts.length}}">
+        <li>Ingen kontakter!</li>
+      </template>
+    </ul>
+  </template>
+  <script>
+    Polymer('contact-tile', {
+      ready: function() {
+        this.contacts = [];
+      }
+    });
+  </script>
+</polymer-element>
+						</code>
+					</pre>
+				</section>
+
+				<section>
+					<h3>Data binding - eksplisitt binding</h3>
+					<pre>
+						<code style="overflow: hidden">
+<polymer-element name="contact-tile">
+  <template>
+    <ul>
+      <template bind="{{contacts as contact}}">
+	    <template if="{{contact.age > 25}}">
+	      <div>{{contact.name}} er eldre enn 25år!</div>
+	    </template>
+	  </template>
+    </ul>
+  </template>
+  <script>
+    Polymer('contact-tile', {
+      ready: function() {
+        this.contacts = [
+			  {'name': 'Morten Kjelling', 'age': 16},
+			  {'name': 'Alexander Perry', 'age': 25},
+			  {'name': 'Bjørn Vegard Thoresen', 'age': 32}];
+      }
+    });
+  </script>
+</polymer-element>
+						</code>
+					</pre>
+				</section>
+
+				<section>
+					<h3>Data binding - attributter</h3>
+					<pre>
+						<code>
+							<a href="{{url}}"></a>
+						</code>
+					</pre>
+					<ul>
+						<li>Stort sett enveis</li>
+						<li>Toveis på input-elementer</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Data binding - input-verdier</h3>
+					<ul>
+						<li>input: value, checked</li>
+						<li>option: value</li>
+						<li>select: selectedIndex, value</li>
+						<li>textarea: value</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Data binding - published properties</h3>
+					
 				</section>
 
 				<section>
