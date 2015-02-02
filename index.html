@@ -167,12 +167,6 @@
 
 				<section>
 					<h2>HTML5</h2>
-					<h3>Bedre layout</h3>
-					<img src="/css/img/html5-layout.png"  style="width: 500px; background:none; border:none; box-shadow:none;"/>
-				</section>
-
-				<section>
-					<h2>HTML5</h2>					
 					<pre class="fragment">
 						<code data-trim contenteditable class="xml">
 &lt;div class=&quot;wrapper&quot;&gt;
@@ -268,7 +262,7 @@
 					<h3>Skjult DOM</h3>
 					<pre class="fragment">
 						<code class="html">
-							<div id="mytemplate" style="display: none">
+							<div id="mytemplate" style="display: none;">
 								<img src="logo.png">
 								<div class="comment"></div>
 							</div>
@@ -276,8 +270,9 @@
 					</pre>
 					<p class="fragment">:) Bruker DOM - nettleseren kjenner DOM. Den er flink med den. Lett å klone.</p>
 					<p class="fragment">:) Ingen ting blir rendret - ved å legge til display: none blir blokken skjult</p>
-					<p class="fragment">:( Selv om innholdet er skult blir det send nettverksforespørsl pga bildet</p>
-					<p class="fragment">:( Slitsomt å style  og tematisere - En må prefixe alle CSS regler med #mytemplate. Dette blir for slitsomt, og kan bli problemer hvis en side allerede har et element med samme id</p>
+					<p class="fragment">:( Selv om innholdet er skjult blir det sendt en nettverksforespørsel pga bildet</p>
+					<p class="fragment">:( Slitsomt å style  og tematisere - En må prefixe alle CSS regler med #mytemplate.
+						Dette blir fort slitsomt, og kan føre til problemer hvis en side allerede har et element med samme id</p>
 
 				</section>
 				<section>
@@ -291,8 +286,8 @@
 						</code>
 					</pre>
 					<p class="fragment">:) Ingenting blir rendra - nettleseren rendrer ikke denne blokken fordi &lt;script&gt; har display:none som default.</p>
-					<p class="fragment">:) Nettleseren parser ikke script innholdet som JS fordi typen er sett til noe annet enn "text/javascript".</p>
-					<p class="fragment">:( Sikkerhetsproblemer - oppmuntrer til bruk av .innerHTML. Run-time string parsing av bruker levert data kan
+					<p class="fragment">:) Nettleseren parser ikke script innholdet som JS fordi typen er satt til noe annet enn "text/javascript".</p>
+					<p class="fragment">:( Sikkerhetsproblemer - oppmuntrer til bruk av .innerHTML. Run-time string parsing av brukerlevert data kan
 						føre til XSS(cross side scripting) sårbarheter.</p>
 				</section>
 				<section>
@@ -303,9 +298,9 @@
 						Script blir ikke kjørt, bilder blir ikke lastet, audio blir ikke avspilt,
 						... før templaten blir tatt i bruk.</p>
 					<p class="fragment">Innholdet er ansett som å ikke være i dokumentet.
-						Bruk av document.getElementById() eller querySelector() i hovedsiden vil ikke returnere barnnoder av templaten. </p>
+						Bruk av document.getElementById() eller querySelector() i hovedsiden vil ikke returnere undernoder av templaten. </p>
 					<p class="fragment">Templater kan bli plassert hvor som helst inne i
-						&lt;head&gt;, &lt;body&gt; or &lt;frameset&gt; og kan inneholde alt innhold som er lovelig i disse elementene.</p>
+						&lt;head&gt;, &lt;body&gt; eller &lt;frameset&gt; og kan inneholde alt innhold som er lovelig i disse elementene.</p>
 					<template id="contact-template">
 						<style>
 						#template-wrapper .contact-wrapper {
@@ -438,8 +433,7 @@
 					<hr>
 					<p>Adskilt fra resten av DOM</p>
 					<p>Styling av host/mål-elementet; :host</p>
-					<p>Styling av rot-elementet; ::shadow</p>
-					<p>Tilgang til intern styling; &gt&gt&gt</p>
+					<p>Tilgang til intern styling; &lt&lt&lt</p>
 				</section>
 
 				<section>
@@ -464,44 +458,33 @@
 
 				<section>
 					<h2>Into the shadow</h2>
-					<h3>Styling - Selecting into the shadow</h3>
+					<h3>Styling - ::shadow</h3>
 					<hr>
 					<pre class="fragment">
 						<code class="css">
-						  .contact-tile::shadow h2 {
-						    color: red;
-						  }
+:host {
+  opacity: 0.4;
+}
+:host(:hover) {
+  opacity: 1;
+}
+:host(:active) {
+  opacity: 1;
+  background-color: blue;
+}
 						</code>
 					</pre>
-					<p>Styling av shadow DOM fra utsiden</p>
-					<p>Velger rot-elementet / shadow root</p>
 				</section>
 
 				<section>
 					<h2>Into the shadow</h2>
-					<h3>Shadow-piercing descendant combinator</h3>
+					<h3>Styling - /deep/ &lt&lt&lt</h3>
 					<hr>
 					<pre class="fragment">
 						<code class="css">
-.contact-tile /deep/ .detailed-info{
-  ...
-}
 
-.contact-tile &gt&gt&gt .detailed-info{
-  ...
-}
-						</code>					
+						</code>
 					</pre>
-				</section>
-
-				<section>
-					<h2>Into the shadow</h2>	
-					<h3>Shadow-piercing descendant combinator</h3>
-					<hr>
-					<p class="fragment">Velger alle matchende elementer</p>
-					<p class="fragment">Kraftigere enn ::shadow</p>
-					<p class="fragment">/deep/ forsvinner, erstattes med:</p>
-					<p class="fragment">&gt&gt&gt - null nettleserstøtte</p>
 				</section>
 
 				<section class="shadows">
@@ -509,6 +492,7 @@
 					<hr>
 
 					<a href="http://caniuse.com/#search=shadow%20dom" target="_blank">
+						<img src="css/img/android-logo.svg" width="150px" style="background:none; border:none; box-shadow:none;"/>
 						<img src="css/img/chrome-logo.svg"  width="150px" style="background:none; border:none; box-shadow:none;"/>
 						<img src="css/img/opera-logo.PNG"  width="150px" style="background:none; border:none; box-shadow:none;"/>
 						<img src="css/img/firefox-logo.PNG"  width="150px" style="background:none; border:none; box-shadow:none;"/>
@@ -728,6 +712,7 @@
 					<h2>Hvorfor Polymer?</h2>
 
 					<a href="https://www.polymer-project.org/resources/compatibility.html" target="_blank">
+						<img src="css/img/android-logo.svg" width="150px" style="background:none; border:none; box-shadow:none;"/>
 						<img src="css/img/chrome-logo.svg"  width="150px" style="background:none; border:none; box-shadow:none;"/>
 						<img src="css/img/opera-logo.PNG"  width="150px" style="background:none; border:none; box-shadow:none;"/>
 						<img src="css/img/firefox-logo.PNG"  width="150px" style="background:none; border:none; box-shadow:none;"/>
@@ -738,10 +723,6 @@
 
 				<section>
 					<h1>Arkitektur</h1>
-				</section>
-
-				<section>
-					<h2>Arkitektur</h2>
 					<img src="css/img/polymer-architecture-all.svg"  style="height: 500px; background:none; border:none; box-shadow:none;">
 				</section>
 
@@ -886,15 +867,21 @@
 				</section>
 
 				<section>
+<<<<<<< HEAD
 					<h3>{{ Expressions }}</h3>
 					<hr>
 
 					<p class="fragment">Gjøre enkle verdi konsepter</p>
 					<p class="fragment">Kan ikke legge til HTML ved å bruke expressions</p>
+=======
+					<h2>Syntaks</h2>
+					<h3>Expressions</h3>
+>>>>>>> a7e44ddfe39f1208f6eed38497c7de11bc90f3c3
 
 				</section>
 
 				<section>
+<<<<<<< HEAD
 					<h3>Hvor mange GIFs har Morten?</h3>
 					<hr>
 
@@ -907,14 +894,11 @@
 				</section>
 
 				<section>
+=======
+					<h2>Syntaks</h2>
+>>>>>>> a7e44ddfe39f1208f6eed38497c7de11bc90f3c3
 					<h3>Touch events</h3>
-					<p>Kryssplattform</p>
-					<p>Mus + touch</p>
-					<p>Lite overhead</p>
-
-					<aside class="notes">
-						<a href="https://www.polymer-project.org/docs/polymer/touch.html"></a>
-					</aside>
+					<a href="https://www.polymer-project.org/docs/polymer/touch.html"></a>
 				</section>
 
 				<section>
@@ -1077,18 +1061,6 @@
 				</section>
 
 				<section>
-					<h3>Data binding - engangs</h3>
-					<pre>
-						<code>
-							<input type="text" value="Verdi som bare settes inn en gang: [[ value ]]">
-						</code>
-					</pre>
-					<p>Blir inaktiv etter første binding</p>
-					<p>Fordel for ytelsen</p>
-					<p>Eksperimentell!</p>
-				</section>
-
-				<section>
 					<h2>Lifecycle callbacks</h2>
 					<table style="font-size:14px;">
 					  <thead>
@@ -1174,6 +1146,39 @@
 				</section>
 
 				<section>
+<<<<<<< HEAD
+					<h2>Syntaks</h2>
+
+				</section>
+
+
+				<section>
+					<h2>Syntaks</h2>
+					<h3>Expressions</h3>
+
+				</section>
+
+				<section>
+					<h2>Syntaks</h2>
+					<h3>Data-binding</h3>
+
+				</section>
+
+				<section>
+					<h2>Syntaks</h2>
+					<h3>Insertion points</h3>
+
+				</section>
+
+				<section>
+					<h2>Syntaks</h2>
+					<h3>Lifecycle callbacks</h3>
+
+				</section>
+
+				<section>
+=======
+>>>>>>> a7e44ddfe39f1208f6eed38497c7de11bc90f3c3
 					<h2>Polymer Designer</h2>
 					<p> <a href="https://polymer-designer.appspot.com/ ">polymer-designer.appspot.com</a> </p>
 
@@ -1207,11 +1212,6 @@
 					<h2>Jobb?</h2>
 					<hr>
 					<p >Nina Orucevic / nina.orucevic@ciber.com</p>
-
-				</section>
-
-				<section>
-					<h1>Takk for oss!</h1>
 
 				</section>
 			</div>
