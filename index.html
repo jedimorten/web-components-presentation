@@ -169,7 +169,7 @@
 						<p>Vis hvordan vi bruker HTML5 i slidene</p>
 					</aside>
 				</section>
-				
+
 				<section>
  					<h2>HTML5</h2>
 					<h3>Bedre layout</h3>
@@ -286,11 +286,10 @@
 							</div>
 						</code>
 					</pre>
-					<p class="fragment">:) Bruker DOM - nettleseren kjenner DOM. Den er flink med den. Lett å klone.</p>
-					<p class="fragment">:) Ingen ting blir rendret - ved å legge til display: none blir blokken skjult</p>
-					<p class="fragment">:( Selv om innholdet er skjult blir det sendt en nettverksforespørsel pga bildet</p>
-					<p class="fragment">:( Slitsomt å style  og tematisere - En må prefixe alle CSS regler med #mytemplate.
-						Dette blir fort slitsomt, og kan føre til problemer hvis en side allerede har et element med samme id</p>
+					<p class="fragment">:) Bruker DOM</p>
+					<p class="fragment">:) Ingenting blir rendra</p>
+					<p class="fragment">:( Requests</p>
+					<p class="fragment">:( Slitsomt å style</p>
 
 				</section>
 				<section>
@@ -303,10 +302,9 @@
 							</script>
 						</code>
 					</pre>
-					<p class="fragment">:) Ingenting blir rendra - nettleseren rendrer ikke denne blokken fordi &lt;script&gt; har display:none som default.</p>
-					<p class="fragment">:) Nettleseren parser ikke script innholdet som JS fordi typen er satt til noe annet enn "text/javascript".</p>
-					<p class="fragment">:( Sikkerhetsproblemer - oppmuntrer til bruk av .innerHTML. Run-time string parsing av brukerlevert data kan
-						føre til XSS(cross side scripting) sårbarheter.</p>
+					<p class="fragment">:) Ingenting blir rendra</p>
+					<p class="fragment">:) Ingen requests</p>
+					<p class="fragment">:( Sikkerhetsproblemer</p>
 				</section>
 				<section>
 					<h3 onclick="addTemplate()">Markup</h3>
@@ -357,10 +355,12 @@
 
 						</style>
 						<div class="contact-wrapper">
-							<div class="contact-header">
-								<content select="h2">Morten Kjelling</content>
-								<content select="img"><img src="css/img/morten.png"/></content>
-							</div>
+							<a href="http://localhost:9001/lf/0.3" target="_blank">
+								<div class="contact-header">
+									<content select="h2">Morten Kjelling</content>
+									<content select="img"><img src="css/img/morten.png"/></content>
+								</div>
+							</a>
 							<div class="detailed-info">
 								<ul>
 									<li id="position">Frontend / .NET</li>
@@ -382,18 +382,6 @@
 					<pre id="template-wrapper" style="height:400px;">
 
 					</pre>
-				</section>
-				<section>
-					<h3>Templates</h3>
-					<hr>
-					<p class="fragment">Innholdet er skjult i DOM og blir ikke rendret.</p>
-					<p class="fragment">Innholdet som er i templaten skal ikke ha sideeffekter.
-						Script blir ikke kjørt, bilder blir ikke lastet, audio blir ikke avspilt,
-						... før templaten blir tatt i bruk.</p>
-					<p class="fragment">Innholdet er ansett som å ikke være i dokumentet.
-						Bruk av document.getElementById() eller querySelector() i hovedsiden vil ikke returnere undernoder av templaten. </p>
-					<p class="fragment">Templater kan bli plassert hvor som helst inne i
-						&lt;head&gt;, &lt;body&gt; eller &lt;frameset&gt; og kan inneholde alt innhold som er lovelig i disse elementene.</p>
 				</section>
 
 				<section class="shadows">
@@ -547,7 +535,7 @@
 .contact-tile /deep/ .detailed-info{
   ...
 }
- 
+
 .contact-tile &gt&gt&gt .detailed-info{
   ...
 }
@@ -556,6 +544,16 @@
 					<aside class="notes">
 						<p>/deep/ velger alle elementene i alle shadow DOMs</p>
 					</aside>
+				</section>
+
+				<section>
+					<h2>Selecting into the shadow</h2>
+					<h3>Shadow-piercing descendant combinator</h3>
+					<hr>
+					<p class="fragment">Velger alle matchende elementer</p>
+					<p class="fragment">Kraftigere enn ::shadow</p>
+					<p class="fragment">/deep/ forsvinner, erstattes med:</p>
+					<p class="fragment">&gt&gt&gt - null nettleserstøtte</p>
 				</section>
 
 				<section class="shadows">
@@ -761,6 +759,14 @@
 						<p>Tid: 55min</p>
 					</aside>
 				</section>
+				<section>
+					<h3>
+						<a href="http://localhost:9001/lf/0.6" target="_blank">I praksis</a></h3>
+					<hr>
+					<p class="fragment">Ekstern link?</p>
+					<p class="fragment">Mappestruktur?</p>
+					<p class="fragment">Droppe eksterne avhengigheter?</p>
+				</section>
 
 				<section>
 					<h2>Ulemper</h2>
@@ -964,31 +970,6 @@
 					</pre>
 					<aside class="notes">
 						<p>Tid: 1t 40min</p>
-					</aside>
-				</section>
-
-				<section>
-					<h2>Syntaks</h2>
-					<h3>{{ Expressions }}</h3>
-					<hr>
-
-					<p class="fragment">Gjøre enkle verdi konsepter</p>
-					<p class="fragment">Kan ikke legge til HTML ved å bruke expressions</p>
-
-				</section>
-
-				<section>
-					<h3>Hvor mange GIFs har Morten?</h3>
-					<hr>
-
-					<code class="fragment html">
-						<p>Morten har {{ folders.gif.length }} gifs<p>
-					</code>
-					<code class="fragment html">
-						<p>Morten har 9001 gifs<p>
-					</code>
-					<aside class="notes">
-						<p>Tid: 1t 45min</p>
 					</aside>
 				</section>
 
@@ -1220,8 +1201,54 @@
 					<p>Fordel for ytelsen</p>
 					<p>Eksperimentell!</p>
 					<aside class="notes">
+						<p>Tid: 1t 50min</p>
+					</aside>
+				</section>
+
+				<section>
+					<h2>Syntaks</h2>
+					<h3>{{ Expressions }}</h3>
+					<hr>
+
+					<p class="fragment">Gjøre enkle verdi konsepter</p>
+					<p class="fragment">Filtrering</p>
+					<p class="fragment">Kan ikke legge til HTML ved å bruke expressions</p>
+
+				</section>
+
+				<section>
+					<h3>Hvor mange GIFs har Morten?</h3>
+					<hr>
+
+					<pre>
+						<code class="html">
+							<p>Morten har {{ folders.gif.length }} gifs<p>
+						</code>
+					</pre>
+					<pre class="fragment">
+						<code class="html">
+							<p>Morten har 9001 gifs<p>
+						</code>
+					</pre>
+					<aside class="notes">
 						<p>Tid: 1t 55min</p>
 					</aside>
+				</section>
+				<section>
+					<h3>Sende inn parameter til filter</h3>
+					<hr>
+					<pre>
+						<code class="javascript">
+							{{myNumber | toFixed(2)}}
+						</code>
+					</pre>
+					<pre class="fragment">
+						<code class="javascript">
+							toFixed: function(value, precision) {
+								return Number(value).toFixed(precision);
+							}
+						</code>
+					</pre>
 				</section>
 
 				<section>
