@@ -169,6 +169,12 @@
 					<aside class="notes">
 					</aside>
 				</section>
+				
+				<section>
+ 					<h2>HTML5</h2>
+					<h3>Bedre layout</h3>
+					<img src="/css/img/html5-layout.png"  style="width: 500px; background:none; border:none; box-shadow:none;"/>
+				</section>
 
 				<section>
 					<h2>HTML5</h2>
@@ -250,7 +256,7 @@
 					<h3 class="fragment">Komponenter</h3>
 					<h3 class="fragment">Scoping</h3>
 
-					<aside>
+					<aside class="notes">
 						<p>Tid: 15min</p>
 					</aside>
 				</section>
@@ -461,7 +467,7 @@
 					<hr>
 					<p>Adskilt fra resten av DOM</p>
 					<p>Styling av host/mål-elementet; :host</p>
-					<p>Tilgang til intern styling; &lt&lt&lt</p>
+					<p>Tilgang til intern styling; &gt&gt&gt</p>
 				</section>
 
 				<section>
@@ -485,34 +491,47 @@
 				</section>
 
 				<section>
-					<h2>Into the shadow</h2>
+					<h2>Selecting into the shadow</h2>
 					<h3>Styling - ::shadow</h3>
 					<hr>
 					<pre class="fragment">
 						<code class="css">
-:host {
-  opacity: 0.4;
+						.contact-tile::shadow h2 {
+						    color: red;
+						}
+
+						</code>
+					</pre>
+					<p>Styling av shadow DOM fra utsiden</p>
+					<p>Velger rot-elementet / shadow root</p>
+				</section>
+
+				<section>
+					<h2>Selecting into the shadow</h2>
+					<h3>Styling - /deep/ &gt&gt&gt</h3>
+					<hr>
+					<pre class="fragment">
+						<code class="css">
+
+.contact-tile /deep/ .detailed-info{
+  ...
 }
-:host(:hover) {
-  opacity: 1;
-}
-:host(:active) {
-  opacity: 1;
-  background-color: blue;
+ 
+.contact-tile &gt&gt&gt .detailed-info{
+  ...
 }
 						</code>
 					</pre>
 				</section>
 
 				<section>
-					<h2>Into the shadow</h2>
-					<h3>Styling - /deep/ &lt&lt&lt</h3>
+					<h2>Selecting into the shadow</h2>	
+					<h3>Shadow-piercing descendant combinator</h3>
 					<hr>
-					<pre class="fragment">
-						<code class="css">
-
-						</code>
-					</pre>
+					<p class="fragment">Velger alle matchende elementer</p>
+					<p class="fragment">Kraftigere enn ::shadow</p>
+					<p class="fragment">/deep/ forsvinner, erstattes med:</p>
+					<p class="fragment">&gt&gt&gt - null nettleserstøtte</p>
 				</section>
 
 				<section class="shadows">
@@ -520,7 +539,6 @@
 					<hr>
 
 					<a href="http://caniuse.com/#search=shadow%20dom" target="_blank">
-						<img src="css/img/android-logo.svg" width="150px" style="background:none; border:none; box-shadow:none;"/>
 						<img src="css/img/chrome-logo.svg"  width="150px" style="background:none; border:none; box-shadow:none;"/>
 						<img src="css/img/opera-logo.PNG"  width="150px" style="background:none; border:none; box-shadow:none;"/>
 						<img src="css/img/firefox-logo.PNG"  width="150px" style="background:none; border:none; box-shadow:none;"/>
@@ -760,7 +778,6 @@
 					<h2>Hvorfor Polymer?</h2>
 
 					<a href="https://www.polymer-project.org/resources/compatibility.html" target="_blank">
-						<img src="css/img/android-logo.svg" width="150px" style="background:none; border:none; box-shadow:none;"/>
 						<img src="css/img/chrome-logo.svg"  width="150px" style="background:none; border:none; box-shadow:none;"/>
 						<img src="css/img/opera-logo.PNG"  width="150px" style="background:none; border:none; box-shadow:none;"/>
 						<img src="css/img/firefox-logo.PNG"  width="150px" style="background:none; border:none; box-shadow:none;"/>
@@ -964,6 +981,51 @@
 					<p>Kryssplattform</p>
 					<p>Mus + touch</p>
 					<p>Lite overhead</p>
+
+					<aside class="notes">
+						<a href="https://www.polymer-project.org/docs/polymer/touch.html"></a>
+					</aside>
+				</section>
+
+				<section>
+					<h2>Syntaks</h2>
+					<h3>Touch events</h3>
+
+					<pre>
+						<code>
+							//Standard fra nettleser
+							touch-action: auto;
+							//Ingen touch
+							touch-action: none;
+							//Horizontal scrolling
+							touch-action: pan-x;
+							//Vertical scrolling
+							touch-action: pan-y;
+							//Pinch zoom + scrolling
+							touch-action: manipulation;
+						</code>
+					</pre>
+
+					<aside class="notes">
+						<a href="https://www.polymer-project.org/docs/polymer/touch.html"></a>
+						<p>Tid: 1t 50min</p>
+					</aside>
+				</section>
+
+
+				<section>
+					<h2>Syntaks</h2>
+					<h3>Touch events</h3>
+
+					<pre>
+						<code>
+							<div touch-action="auto"></div>
+							<div touch-action="none"></div>
+							<div touch-action="pan-x"></div>
+							<div touch-action="pan-y"></div>
+							<div touch-action="manipulation"></div>
+						</code>
+					</pre>
 
 					<aside class="notes">
 						<a href="https://www.polymer-project.org/docs/polymer/touch.html"></a>
@@ -1272,6 +1334,11 @@
 					<h2>Jobb?</h2>
 					<hr>
 					<p >Nina Orucevic / nina.orucevic@ciber.com</p>
+
+				</section>
+
+				<section>
+					<h1>Takk for oss!</h1>
 
 				</section>
 			</div>
