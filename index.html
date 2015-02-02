@@ -303,16 +303,16 @@
 						føre til XSS(cross side scripting) sårbarheter.</p>
 				</section>
 				<section>
-					<h3 onclick="addTemplate()">Templates</h3>
+					<h3 onclick="addTemplate()">Markup</h3>
 					<hr>
-					<p class="fragment">Innholdet er skjult i DOM og blir ikke rendret.</p>
-					<p class="fragment">Innholdet som er i templaten skal ikke ha sideeffekter.
-						Script blir ikke kjørt, bilder blir ikke lastet, audio blir ikke avspilt,
-						... før templaten blir tatt i bruk.</p>
-					<p class="fragment">Innholdet er ansett som å ikke være i dokumentet.
-						Bruk av document.getElementById() eller querySelector() i hovedsiden vil ikke returnere undernoder av templaten. </p>
-					<p class="fragment">Templater kan bli plassert hvor som helst inne i
-						&lt;head&gt;, &lt;body&gt; eller &lt;frameset&gt; og kan inneholde alt innhold som er lovelig i disse elementene.</p>
+					<pre>
+						<code style="html">
+							<template id="mytemplate">
+								<img src="logo.png">
+								<div class="comment"></div>
+							</template>
+						</code>
+					</pre>
 					<template id="contact-template">
 						<style>
 						#template-wrapper .contact-wrapper {
@@ -376,6 +376,18 @@
 					<pre id="template-wrapper" style="height:400px;">
 
 					</pre>
+				</section>
+				<section>
+					<h3>Templates</h3>
+					<hr>
+					<p class="fragment">Innholdet er skjult i DOM og blir ikke rendret.</p>
+					<p class="fragment">Innholdet som er i templaten skal ikke ha sideeffekter.
+						Script blir ikke kjørt, bilder blir ikke lastet, audio blir ikke avspilt,
+						... før templaten blir tatt i bruk.</p>
+					<p class="fragment">Innholdet er ansett som å ikke være i dokumentet.
+						Bruk av document.getElementById() eller querySelector() i hovedsiden vil ikke returnere undernoder av templaten. </p>
+					<p class="fragment">Templater kan bli plassert hvor som helst inne i
+						&lt;head&gt;, &lt;body&gt; eller &lt;frameset&gt; og kan inneholde alt innhold som er lovelig i disse elementene.</p>
 				</section>
 
 				<section class="shadows">
