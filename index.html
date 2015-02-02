@@ -1235,6 +1235,22 @@
 					</aside>
 				</section>
 				<section>
+					<h3>Custom filter</h3>
+					<hr>
+					<pre>
+						<code class="javascript">
+							{{ Hallo Abakus | uppercase}}
+						</code>
+					</pre>
+					<pre class="fragment">
+						<code class="javascript">
+							PolymerExpressions.prototype.uppercase = function(input) {
+								return input.toUpperCase();
+							};
+						</code>
+					</pre>
+				</section>
+				<section>
 					<h3>Sende inn parameter til filter</h3>
 					<hr>
 					<pre>
