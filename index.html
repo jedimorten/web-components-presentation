@@ -355,10 +355,12 @@
 
 						</style>
 						<div class="contact-wrapper">
-							<div class="contact-header">
-								<content select="h2">Morten Kjelling</content>
-								<content select="img"><img src="css/img/morten.png"/></content>
-							</div>
+							<a href="http://localhost:9001/lf/0.3" target="_blank">
+								<div class="contact-header">
+									<content select="h2">Morten Kjelling</content>
+									<content select="img"><img src="css/img/morten.png"/></content>
+								</div>
+							</a>
 							<div class="detailed-info">
 								<ul>
 									<li id="position">Frontend / .NET</li>
@@ -738,7 +740,8 @@
 					</aside>
 				</section>
 				<section>
-					<h3>I praksis</h3>
+					<h3>
+						<a href="http://localhost:9001/lf/0.6" target="_blank">I praksis</a></h3>
 					<hr>
 					<p class="fragment">Ekstern link?</p>
 					<p class="fragment">Mappestruktur?</p>
@@ -1188,6 +1191,7 @@
 					<hr>
 
 					<p class="fragment">Gjøre enkle verdi konsepter</p>
+					<p class="fragment">Filtrering</p>
 					<p class="fragment">Kan ikke legge til HTML ved å bruke expressions</p>
 
 				</section>
@@ -1196,15 +1200,35 @@
 					<h3>Hvor mange GIFs har Morten?</h3>
 					<hr>
 
-					<code class="fragment html">
-						<p>Morten har {{ folders.gif.length }} gifs<p>
-					</code>
-					<code class="fragment html">
-						<p>Morten har 9001 gifs<p>
-					</code>
+					<pre>
+						<code class="html">
+							<p>Morten har {{ folders.gif.length }} gifs<p>
+						</code>
+					</pre>
+					<pre class="fragment">
+						<code class="html">
+							<p>Morten har 9001 gifs<p>
+						</code>
+					</pre>
 					<aside class="notes">
 						<p>Tid: 1t 55min</p>
 					</aside>
+				</section>
+				<section>
+					<h3>Sende inn parameter til filter</h3>
+					<hr>
+					<pre>
+						<code class="javascript">
+							{{myNumber | toFixed(2)}}
+						</code>
+					</pre>
+					<pre class="fragment">
+						<code class="javascript">
+							toFixed: function(value, precision) {
+								return Number(value).toFixed(precision);
+							}
+						</code>
+					</pre>
 				</section>
 
 				<section>
