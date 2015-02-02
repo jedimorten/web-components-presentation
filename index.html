@@ -109,8 +109,7 @@
 
 				<section>
 					<h1>HTML før HTML5</h1>
-					<img src="/css/img/html4.png"  style="background:none; border:none; box-shadow:none;"/>
-
+					<a href="http://localhost:9001/lf/0.1" target="_blank"><img src="/css/img/html4.png"  style="background:none; border:none; box-shadow:none;"/></a>
 				</section>
 
 				<section>
@@ -167,6 +166,7 @@
 					<img src="css/img/divs.png"  style="background:none; border:none; box-shadow:none;">
 
 					<aside class="notes">
+						<p>Vis hvordan vi bruker HTML5 i slidene</p>
 					</aside>
 				</section>
 				
@@ -481,7 +481,14 @@
 					<hr>
 					<p>Adskilt fra resten av DOM</p>
 					<p>Styling av host/mål-elementet; :host</p>
+					<p>Styling av rot-elementet; ::shadow</p>
 					<p>Tilgang til intern styling; &gt&gt&gt</p>
+
+					<aside class="notes">
+						<p>Shadow DOM er altså tilgjengelig fra utsiden</p>
+						<p>Kontrollerte forhold</p>
+						<p>Eksplisitt selecte shadow DOM</p>
+					</aside>
 				</section>
 
 				<section>
@@ -521,6 +528,16 @@
 				</section>
 
 				<section>
+					<h2>Selecting into the shadow</h2>	
+					<h3>Shadow-piercing descendant combinator</h3>
+					<hr>
+					<p class="fragment">Velger alle matchende elementer</p>
+					<p class="fragment">Kraftigere enn ::shadow</p>
+					<p class="fragment">/deep/ forsvinner, erstattes med:</p>
+					<p class="fragment">&gt&gt&gt - null nettleserstøtte</p>
+				</section>
+
+				<section>
 					<h2>Selecting into the shadow</h2>
 					<h3>Styling - /deep/ &gt&gt&gt</h3>
 					<hr>
@@ -536,16 +553,9 @@
 }
 						</code>
 					</pre>
-				</section>
-
-				<section>
-					<h2>Selecting into the shadow</h2>	
-					<h3>Shadow-piercing descendant combinator</h3>
-					<hr>
-					<p class="fragment">Velger alle matchende elementer</p>
-					<p class="fragment">Kraftigere enn ::shadow</p>
-					<p class="fragment">/deep/ forsvinner, erstattes med:</p>
-					<p class="fragment">&gt&gt&gt - null nettleserstøtte</p>
+					<aside class="notes">
+						<p>/deep/ velger alle elementene i alle shadow DOMs</p>
+					</aside>
 				</section>
 
 				<section class="shadows">
@@ -1317,9 +1327,9 @@
 					<h2>Ulemper</h2>
 					<hr>
 
-					<p class="fragment">Manglende dokumentasjon</p>
+					<p class="fragment">Uferdig dokumentasjon</p>
 					<p class="fragment">Fortsatt under utvikling</p>
-					<p class="fragment">Uferdig feilhåndtering</p>
+					<p class="fragment">Feilhåndtering</p>
 				</section>
 
 				<section>
