@@ -62,48 +62,19 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section data-background="#4B2A91">
-					<div style="width:900px">
-						<img src="/css/img/ciber_logo.png" style="background:none; border:none; box-shadow:none;" />
-						<img src="/css/img/abakus_logo.png" style="background:none; border:none; box-shadow:none;" />
-					</div>
-				</section>
-
-				<section>
-					<h3>Installer Grunt</h3>
-					<ol>
-						<li>Installer NodeJS (<a href="http://nodejs.org/" target="_blank">nodejs.org</a>)</li>
-						<li>Åpne et terminal/shell-vindu</li>
-						<li>
-							<pre>
-								<code>
-									npm install -g grunt-cli
-								</code>
-							</pre>
-						</li>
-						<li>Last ned prosjektet <a href="http://bit.ly/ciberweb" target="_blank">bit.ly/ciberweb</a></li>
-						<li>Åpne prosjektmappen i terminalen</li>
-						<li>Kjør webappen med grunt</li>
-					</ol>
-				</section>
-
-				<section>
 					<h3>Introduksjon til</h3>
 					<h1>Web Components</h1>
-				</section>
-
-				<section>
-					<a href="http://localhost:9001/lf/1.0" target="_blank">
-						<h1>Om oss</h1>
-					</a>
+					<img src="/css/img/ciber_logo.png" style="background:none; border:none; box-shadow:none;" />
+					<p><a href="https://bit.ly/webcib">https://bit.ly/webcib</a></p>
 				</section>
 
 				<section>
 					<h2>Program</h2>
 					<ol>
 						<li>Intro til web components</li>
-						<li>Pause med pizza</li>
+						<li>Pause</li>
 						<li>Polymer</li>
-						<li>Den gode nabo</li>
+						<li>Olivia</li>
 					</ol>
 				</section>
 
@@ -136,10 +107,6 @@
 							</div>
 						</code>
 					</pre>
-
-					<aside class="notes">
-						<p>Vis versjon 0.1 i alle nettleserne</p>
-					</aside>
 				</section>
 
 				<section>
@@ -200,9 +167,6 @@
 &lt;/div&gt;
 						</code>
 					</pre>
-					<aside class="notes">
-						<p>Gjør om fra 0.1 til 0.2</p>
-					</aside>
 				</section>
 
 				<section>
@@ -308,6 +272,7 @@
 				<section>
 					<h3>Templates</h3>
 					<hr>
+					<p>Dagens workarounds:</p>
 					<p class="fragment">Skjult DOM<p>
 					<p class="fragment">Overloading script<p>
 				</section>
@@ -316,8 +281,8 @@
 					<pre class="fragment">
 						<code class="html">
 							<div id="mytemplate" style="display: none;">
-								<img src="logo.png">
-								<div class="comment"></div>
+							    <img src="logo.png"/>
+							    <div class="comment"></div>
 							</div>
 						</code>
 					</pre>
@@ -330,10 +295,10 @@
 				<section>
 					<h3>Overloading script</h3>
 					<pre class="fragment">
-						<code class="javascript">
+						<code class="html">
 							<script id="mytemplate" type="text/x-handlebars-template">
-								<img src="logo.png">
-								<div class="comment"></div>
+							    <img src="logo.png"/>
+							    <div class="comment"></div>
 							</script>
 						</code>
 					</pre>
@@ -342,81 +307,20 @@
 					<p class="fragment">:( Sikkerhetsproblemer</p>
 				</section>
 				<section>
-					<h3 onclick="addTemplate()">Markup</h3>
+					<h3>Webcomponent-style templating</h3>
 					<hr>
 					<pre>
 						<code style="html">
-							<template id="mytemplate">
-								<img src="logo.png">
-								<div class="comment"></div>
-							</template>
+						    <template id="mytemplate">
+						        <img src="logo.png">
+						        <div class="comment"></div>
+						    </template>
 						</code>
 					</pre>
-					<template id="contact-template">
-						<style>
-						#template-wrapper .contact-wrapper {
-								position: relative;
-								background-color: #4B2A91;
-								color: #C0D72F;
-								padding: 20px;
-								height: 300px;
-								width:500px;
-								font-size: 1.2rem;
-								font-weight: 300;
-								margin: 0 auto;
-								-webkit-user-select: none;
-						}
-						#template-wrapper .contact-header {
-							margin-bottom: 10px;
-						}
-
-						#template-wrapper .contact-header h2 {
-							font-size: 24px;
-							color:#000;
-						}
-
-						#template-wrapper .contact-header img {
-							position:absolute;
-							top: 20px;
-							right: 20px;
-							width: 70px;
-							height: 70px;
-							border-radius: 50%;
-						}
-
-						#template-wrapper .detailed-info {
-							margin-top:-70px;
-						}
-
-						</style>
-						<div class="contact-wrapper">
-							<a href="http://localhost:9001/lf/0.3" target="_blank">
-								<div class="contact-header">
-									<content select="h2">Morten Kjelling</content>
-									<content select="img"><img src="css/img/morten.png"/></content>
-								</div>
-							</a>
-							<div class="detailed-info">
-								<ul>
-									<li id="position">Frontend / .NET</li>
-									<li id="project">Komplett.no</li>
-									<li id="education">UiO</li>
-								</ul>
-							</div>
-						</div>
-					</template>
-					<script>
-						var addTemplate = function (){
-							var template = document.querySelector('#contact-template');
-								var clone = document.importNode(template.content, true);
-
-								document.querySelector('#template-wrapper').appendChild(clone);
-						}
-					</script>
-
-					<pre id="template-wrapper" style="height:400px;">
-
-					</pre>
+					<p class="fragment">:) Bruker DOM</p>
+					<p class="fragment">:) Ingenting blir rendret</p>
+					<p class="fragment">:) Ingen requests</p>
+					<p class="fragment">:( Dårlig browserstøtte</p>
 				</section>
 
 				<section class="shadows">
@@ -426,10 +330,6 @@
 					<p class="fragment">Skjule støy</p>
 					<p class="fragment">Rydde i DOM</p>
 					<p class="fragment">Vedlikeholdbart</p>
-
-					<aside class="notes">
-						<p>Tid: 25min</p>
-					</aside>
 				</section>
 
 				<section class="shadows">
@@ -473,10 +373,6 @@
 							root.appendChild(clone);
 						</code>
 					</pre>
-
-					<aside class="notes">
-						<p>Starte å gjøre om fra 0.2 til 0.3</p>
-					</aside>
 				</section>
 
 				<section>
@@ -496,6 +392,18 @@
 						  &lt/template&gt
 						</code>
 					</pre>
+				</section>
+
+				<section class="shadows">
+					<h2>Shadow DOM visualizer</h2>
+					<hr>
+					<a href="http://html5-demos.appspot.com/shadowdom-visualizer" target="_blank">
+						<img src="css/img/shadowdomvisualizer.PNG"  style="background:none; border:none; box-shadow:none;"/>
+					</a>
+
+					<aside class="notes">
+						<p>Tid: 35min</p>
+					</aside>
 				</section>
 
 				<section class="shadows">
@@ -568,11 +476,11 @@
 						<code class="css">
 
 .contact-tile /deep/ .detailed-info{
-  ...
+  
 }
 
 .contact-tile &gt&gt&gt .detailed-info{
-  ...
+  
 }
 						</code>
 					</pre>
@@ -592,17 +500,7 @@
 					</a>
 				</section>
 
-				<section class="shadows">
-					<h2>Shadow DOM visualizer</h2>
-					<hr>
-					<a href="http://html5-demos.appspot.com/shadowdom-visualizer" target="_blank">
-						<img src="css/img/shadowdomvisualizer.PNG"  style="background:none; border:none; box-shadow:none;"/>
-					</a>
-
-					<aside class="notes">
-						<p>Tid: 35min</p>
-					</aside>
-				</section>
+				
 
 				<section>
 					<h2>Custom Elementer</h2>
@@ -623,9 +521,9 @@
 							&ltbutton is="unclickable-button"&gtIkke prøv å klikk på meg&lt/button&gt
 						</code>
 					</pre>
-					<pre>
+					
 						<button	is="unclickable-button">Ikke prøv å klikk på meg</button>
-					</pre>
+					
 				</section>
 
 				<section>
@@ -705,7 +603,7 @@
 						self.addEventListener('mouseover', function(e) {
 					        self.style.top = '';
 					        self.style.left = '';
-					        self.style.top = Math.floor((Math.random() * 400) + 1)+'px';
+					        self.style.top = Math.floor((Math.random() * 500) + 1)+'px';
 					        self.style.left = Math.floor((Math.random() * 600) + 1)+'px';
 					    });
 					};
@@ -718,29 +616,27 @@
 
 				<section>
 					<h2>Life-cycle events/callbacks</h2>
-					<h2><a href="http://localhost:9001/LF/0.5" target="_blank">Kontakt-app</a></h2>
 					<hr>
 					<pre>
 						<code class="javascript">
-							var proto = Object.create(HTMLElement.prototype);
+							var proto = Object.create(HTMLButtonElement.prototype);
 							proto.createdCallback = function() {
 							    var self = this,
-							        opened = false,
-							        template = document.querySelector('#contact-template'),
-							        shadow = this.createShadowRoot(),
-							        clone = document.importNode(template.content, true);
-							    self.addEventListener("click", function(){
-							        var d = shadow.querySelector(".detailed-info");
-							        if(!opened){
-							            d.className = "detailed-info";
-							        } else {
-							            d.className = d.className + " hidden";
-							        }
-							        opened = !opened;
+							        t = document.querySelector('#unclickable-template'),
+							        shadow = self.createShadowRoot();
+							        shadow.appendChild(document.importNode(t.content, true));
+							    self.style.position = "absolute";
+							    self.addEventListener('mouseover', function(e) {
+							        self.style.top = '';
+							        self.style.left = '';
+							        self.style.top = Math.floor((Math.random() * 300) + 1)+'px';
+							        self.style.left = Math.floor((Math.random() * 600) + 1)+'px';
 							    });
-							    shadow.appendChild(clone);
 							};
-							document.registerElement('contact-tile', {prototype: proto});
+							document.registerElement('unclickable-button',
+													    {prototype: proto,
+													     extends: 'button'}
+													);
 						</code>
 					</pre>
 				</section>
@@ -785,8 +681,7 @@
 					</aside>
 				</section>
 				<section>
-					<h3>
-						<a href="http://localhost:9001/lf/0.6" target="_blank">I praksis</a></h3>
+					<h3>Html imports i praksis</h3>
 					<hr>
 					<p class="fragment">Ekstern link?</p>
 					<p class="fragment">Mappestruktur?</p>
@@ -801,11 +696,11 @@
 					<p class="fragment">Tidlig fase</p>
 					<p class="fragment">Dårlig nettleserstøtte</p>
 
+				</section>
 
-					<aside class="notes">
-						<p>Tid: 60min</p>
-						<p>Pause neste!</p>
-					</aside>
+				<section>
+					<h4>Time for tasks</h4>
+					<h3><a href="https://bit.ly/webcib">https://bit.ly/webcib</a></h3>
 				</section>
 
 				<section>
@@ -838,19 +733,14 @@
 					</aside>
 				</section>
 
-				<section>
-					<h1>Arkitektur</h1>
-					<img src="css/img/polymer-architecture-all.svg"  style="height: 500px; background:none; border:none; box-shadow:none;">
-				</section>
-
-				<section>
+				<section class="arcbox">
 					<h2>Arkitektur</h2>
-					<img src="css/img/polymer-architecture-native.svg"  style="height: 500px; background:none; border:none; box-shadow:none;">
-				</section>
 
-				<section>
-					<h2>Arkitektur</h2>
-					<img src="css/img/polymer-architecture-foundation.svg"  style="height: 500px; background:none; border:none; box-shadow:none;">
+					<p>Applications</p>
+					<p>Custom elements</p>
+					<p>Core (Polymer.js)</p>
+					<p>Foundation (webcomponents.js)</p>
+					<p>Native</p>
 				</section>
 
 				<section>
@@ -864,27 +754,14 @@
 					</ul>
 				</section>
 
-				<section>
+				<section class="arcbox">
 					<h2>Arkitektur</h2>
-					<img src="css/img/polymer-architecture-core.svg"  style="height: 500px; background:none; border:none; box-shadow:none;">
-					<aside class="notes">
-						<p>Grunnleggende elementer i Polymer</p>
-					</aside>
-				</section>
 
-				<section>
-					<h2>Arkitektur</h2>
-					<img src="css/img/polymer-architecture-elements.svg"  style="height: 500px; background:none; border:none; box-shadow:none;">
-				</section>
-
-				<section>
-					<h2>Arkitektur</h2>
-					<img src="css/img/polymer-architecture-app.svg"  style="height: 500px; background:none; border:none; box-shadow:none;">
-					<p><a href="https://www.polymer-project.org/" target="_blank">www.polymer-project.org</a></p>
-
-					<aside class="notes">
-						<p>Tid: 1t 35min</p>
-					</aside>
+					<p>Applications</p>
+					<p>Custom elements</p>
+					<p>Core (Polymer.js)</p>
+					<p>Foundation (webcomponents.js)</p>
+					<p>Native</p>
 				</section>
 
 				<section>
@@ -900,46 +777,45 @@
 
 				<section>
 					<h2>Syntaks - Vanilla</h2>
+					<h4>Deklarer element</h4>
+					
 					<pre>
-						<h4>Deklarer element</h4>
-						<code class="xml">
-							<template id="contact-template">
-								<style></style>
-							</template>
-							<script>
-							var proto = Object.create(HTMLElement.prototype),
-							    link = document.currentScript.ownerDocument;
-							    template = link.querySelector('#contact-template');
-							proto.createdCallback = function() {
-							    //manage stuff
-							};
-							document.registerElement('contact-tile', {prototype: proto});
-							</script>
+						<code>
+<template id="contact-template">
+    <style></style>
+</template>
+<script>
+    var proto = Object.create(HTMLElement.prototype),
+        link = document.currentScript.ownerDocument;
+        template = link.querySelector('#contact-template');
+    proto.createdCallback = function() {
+        //manage stuff
+    };
+    document.registerElement('contact-tile', {prototype: proto});
+</script>
 						</code>
-						<h4>Bruk element</h4>
+					</pre>
+					<h4>Bruk element</h4>
+					<pre>
 						<code class="xml">
-							<contact-tile></contact-tile>
+<contact-tile></contact-tile>
 						</code>
 					</pre>
 				</section>
 
 				<section>
 					<h2>Syntaks - Polymer</h2>
+					<h4>Deklarer element</h4>
 					<pre>
-						<h4>Deklarer element</h4>
 						<code class="xml">
-							<polymer-element name="contact-tile">
-							    <template></template>
-							    <script>
-							        Polymer({
-							            //manage stuff
-							        });
-							    </script>
-							</polymer-element>
-						</code>
-						<h4>Bruk element</h4>
-						<code class="xml">
-							<contact-tile></contact-tile>
+<polymer-element name="contact-tile">
+    <template></template>
+    <script>
+        Polymer({
+            //manage stuff
+        });
+    </script>
+</polymer-element>
 						</code>
 					</pre>
 				</section>
@@ -965,32 +841,45 @@
 					<hr>
 					<pre>
 						<code class="xml">
-							<polymer-element name="contact-tile" attributes="displayDetails favorite"></polymer-element>
-						</code>
-						<code class="javascript">
-							Polymer({
-							    displayDetails: false,
-							    favorite: false
-							 });
+<polymer-element name="contact-tile" attributes="displayDetails favorite"></polymer-element>
 						</code>
 					</pre>
 					<pre>
-						<code class="xml">
-							<polymer-element name="contact-tile"></polymer-element>
-						</code>
 						<code class="javascript">
-							Polymer({
-							   publish: {
-							     displayDetails: {
-							       value: false,
-							       reflect: true
-							     },
-							     favorite: {
-							       value: false,
-							       reflect: true
-							     }
-							   }
-							 });
+Polymer({
+    displayDetails: false,
+    favorite: false
+});
+						</code>
+					</pre>
+					<aside class="notes">
+						<p>Tid: 1t 40min</p>
+					</aside>
+				</section>
+
+				<section>
+					<h2>Syntaks</h2>
+					<h3><a href="https://www.polymer-project.org/docs/polymer/polymer.html#published-properties" target="_blank">Attributes</a></h3>
+					<hr>
+					<pre>
+						<code class="xml">
+<polymer-element name="contact-tile"></polymer-element>
+						</code>
+					</pre>
+					<pre>
+						<code class="javascript">
+Polymer({
+   publish: {
+     displayDetails: {
+       value: false,
+       reflect: true
+     },
+     favorite: {
+       value: false,
+       reflect: true
+     }
+   }
+ });
 						</code>
 					</pre>
 					<aside class="notes">
@@ -1065,19 +954,19 @@
 					<h3>Data binding - to-veis</h3>
 					<pre>
 						<code>
-<polymer-element name="contact-tile">
-  <template>
-    {{name}} studerte på {{education}}
-  </template>
-  <script>
-    Polymer('contact-tile', {
-      ready: function() {
-        this.name = 'Perry';
-        this.education = 'NTNU';
-      }
-    });
-  </script>
-</polymer-element>
+							<polymer-element name="contact-tile">
+							  <template>
+							    {{name}} studerte på {{education}}
+							  </template>
+							  <script>
+							    Polymer('contact-tile', {
+							      ready: function() {
+							        this.name = 'Yngve';
+							        this.education = 'NTNU';
+							      }
+							    });
+							  </script>
+							</polymer-element>
 						</code>
 					</pre>
 				</section>
@@ -1099,7 +988,7 @@
       ready: function() {
         this.contacts = [
 			  {'name': 'Morten Kjelling', 'position': 'Frontend / .NET'},
-			  {'name': 'Alexander Perry', 'position': 'Frontend / .NET'},
+			  {'name': 'Yngve Svalestuen', 'position': 'Omni Capable'},
 			  {'name': 'Bjørn Vegard Thoresen', 'position': '.NET'}
         ];
       }
@@ -1141,7 +1030,7 @@
 <polymer-element name="contact-tile">
   <template>
     <ul>
-      <template bind="{{contacts as contact}}">
+      <template repeat="{{contact in contacts}}">
 	    <template if="{{contact.age > 25}}">
 	      <div>{{contact.name}} er eldre enn 25år!</div>
 	    </template>
@@ -1153,7 +1042,7 @@
       ready: function() {
         this.contacts = [
 			  {'name': 'Morten Kjelling', 'age': 16},
-			  {'name': 'Alexander Perry', 'age': 25},
+			  {'name': 'Yngve Svalestuen', 'age': 24},
 			  {'name': 'Bjørn Vegard Thoresen', 'age': 32}];
       }
     });
@@ -1264,13 +1153,13 @@
 					<hr>
 					<pre>
 						<code class="javascript">
-							{{ Hallo Abakus | uppercase}}
+						    {{ Hallo Navet | uppercase}}
 						</code>
 					</pre>
 					<pre class="fragment">
 						<code class="javascript">
 							PolymerExpressions.prototype.uppercase = function(input) {
-								return input.toUpperCase();
+							    return input.toUpperCase();
 							};
 						</code>
 					</pre>
@@ -1344,12 +1233,12 @@
 				</section>
 
 				<section>
-					<h3><a href="https://www.polymer-project.org/components/core-elements/demo.html#" target="_blank">Core</a></h3>
+					<h3><a href="https://www.polymer-project.org/0.5/components/core-elements/demo.html#" target="_blank">Core</a></h3>
 
 				</section>
 
 				<section>
-					<h3><a href="https://www.polymer-project.org/components/paper-elements/demo.html#paper-checkbox"  target="_blank">Paper</a></h3>
+					<h3><a href="https://www.polymer-project.org/0.5/components/paper-elements/demo.html#paper-checkbox"  target="_blank">Paper</a></h3>
 
 				</section>
 
@@ -1364,8 +1253,8 @@
 
 				<section>
 					<h3>Google-elementer</h3>
-					<google-map style="height: 500px; display: block" latitude="63.41745928602863" longitude="10.402603117907688">
-						<google-map-marker latitude="63.41745928602863" longitude="10.402603117907688" draggable="true" title="NTNU"></google-map-marker>
+					<google-map style="height: 500px; display: block" latitude="59.943292" longitude="10.717881">
+						<google-map-marker latitude="59.943292" longitude="10.717881" draggable="true" title="IFI"></google-map-marker>
 					</google-map>
 					<p> <a href="http://googlewebcomponents.github.io/google-map/" target="_blank">googlewebcomponents.github.io/google-map/</a> </p>
 				</section>
@@ -1400,6 +1289,11 @@
 					<p class="fragment">Feilhåndtering</p>
 				</section>
 
+				<section>
+					<h4>Time for tasks</h4>
+					<h3><a href="https://bit.ly/webcib">https://bit.ly/webcib</a></h3>
+				</section>
+				
 				<section>
 					<h2>Spørsmål?</h2>
 					<hr>

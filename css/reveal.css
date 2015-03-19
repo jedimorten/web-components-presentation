@@ -1881,3 +1881,12 @@ body {
 .shadows button {
 	background-color:green;
 }
+
+.arcbox p {
+	width: 600px;
+	margin: 10px auto;
+	background-color: #F0FFFE;
+	padding: 30px;
+	color: #000;
+	font-size: 38px;
+}
